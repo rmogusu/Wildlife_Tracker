@@ -11,13 +11,34 @@ public abstract class Animal {
     public int healthyLevel;
     public int illLevel;
     public int okayLevel;
-    public int newbornLevel;
-    public int youngLevel;
-    public int adultLevel;
+
 
     public Timestamp timeSported;
     public Timestamp lastHealthy;
     public Timestamp lastIll;
     public Timestamp lastOkay;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSightingId() {
+        return sightingId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object otherAnimal) {
+        if (!(otherAnimal instanceof Animal)) {
+            return false;
+        } else {
+            Animal newAnimal = (Animal) otherAnimal;
+            return this.getName().equals(newAnimal.getName()) &&
+                    this.getSightingId() == newAnimal.getSightingId();
+        }
+    }
 
 }
