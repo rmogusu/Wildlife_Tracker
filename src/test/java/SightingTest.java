@@ -24,11 +24,11 @@ public class SightingTest {
         Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
         assertEquals("Endangered", testSighting.getSpecies());
     }
-//    @Test
-//    public void getLocation_InstantiatesWithLocation_true() throws Exception {
-//        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
-//        assertEquals("Zone A", testSighting.getLocation());
-//    }
+    @Test
+    public void getLocation_InstantiatesWithLocation_true() throws Exception {
+        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        assertEquals("Zone A", testSighting.getLocation());
+    }
 //    @Test
 //    public void equals_returnsTrueIfSightingsAreSame_true() {
 //        Sighting firstSighting = new Sighting("Fred", "Thriving","Zone A");
