@@ -18,12 +18,12 @@ public class SightingTest {
         Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
         assertEquals("Fred", testSighting.getRangerName());
     }
-//
-//    @Test
-//    public void getSpecies_InstantiatesWithSpecies_true() throws Exception {
-//        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
-//        assertEquals("Thriving", testSighting.getSpecies());
-//    }
+
+    @Test
+    public void getSpecies_InstantiatesWithSpecies_true() throws Exception {
+        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        assertEquals("Endangered", testSighting.getSpecies());
+    }
 //    @Test
 //    public void getLocation_InstantiatesWithLocation_true() throws Exception {
 //        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
