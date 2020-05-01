@@ -16,7 +16,7 @@ Rose Mogusu.
 ## Setup
 * Launch postgres
 * Type psql 
-# Run the following commands:
+#### Run the following commands:
 * CREATE DATABASE wildlife_tracker;
 * \c wildlife_tracker;
 * CREATE TABLE animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar, type varchar);
