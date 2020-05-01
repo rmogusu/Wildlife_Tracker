@@ -29,13 +29,13 @@ public class EndangeredTest {
         Endangered anotherEndangered = new Endangered("Lion", 1);
         assertTrue(testEndangered.equals(anotherEndangered));
     }
-//
-//    @Test
-//    public void save_returnsTrueIfEndangeredAnimalsAreTheSame() {
-//        EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        testEndangeredAnimal.save();
-//        assertTrue(EndangeredAnimal.all().get(0).equals(testEndangeredAnimal));
-//    }
+
+    @Test
+    public void save_successfullyAddsEndangeredAnimalToDatabase_List() {
+        Endangered testEndangered= new Endangered("Lion", 1);
+        testEndangered.save();
+        assertTrue(Endangered.all().get(0).equals(testEndangered));
+    }
 //
 //    @Test
 //    public void save_assignsIdToEndangeredAnimal() {
