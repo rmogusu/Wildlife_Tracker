@@ -1,3 +1,5 @@
+import org.sql2o.Connection;
+
 import java.sql.Timestamp;
 import java.util.Timer;
 
@@ -13,7 +15,7 @@ public abstract class Animal {
     public int okayLevel;
 
 
-    public Timestamp timeSported;
+    public Timestamp timeSpotted;
     public Timestamp lastHealthy;
     public Timestamp lastIll;
     public Timestamp lastOkay;
@@ -41,4 +43,13 @@ public abstract class Animal {
         }
     }
 
+    public void save() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO animals (name, sightingId) VALUES (:name, :sightingId)";
+            con.createQuery(sql)
+                    .addParameter("name", this.name)
+                    .addParameter("sightingId", this.sightingId)
+                    .executeUpdate();
+        }
+    }
 }

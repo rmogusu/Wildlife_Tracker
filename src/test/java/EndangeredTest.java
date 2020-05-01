@@ -36,23 +36,22 @@ public class EndangeredTest {
         testEndangered.save();
         assertTrue(Endangered.all().get(0).equals(testEndangered));
     }
-//
-//    @Test
-//    public void save_assignsIdToEndangeredAnimal() {
-//        EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        testEndangeredAnimal.save();
-//        EndangeredAnimal savedEndangeredAnimal = (EndangeredAnimal) EndangeredAnimal.all().get(0);
-//        assertEquals(savedEndangeredAnimal.getId(), testEndangeredAnimal.getId());
-//    }
-//
-//    @Test
-//    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
-//        EndangeredAnimal firstEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        firstEndangeredAnimal.save();
-//        EndangeredAnimal secondEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        secondEndangeredAnimal.save();
-//        assertEquals(true, EndangeredAnimal.all().get(0).equals(firstEndangeredAnimal));
-//        assertEquals(true, EndangeredAnimal.all().get(1).equals(secondEndangeredAnimal));
-//    }
+
+    @Test
+    public void save_assignsIdToEndangeredAnimal() {
+        Endangered testEndangered = new Endangered("Lion", 1);
+        testEndangered.save();
+        assertTrue(Endangered.all().get(0).equals(testEndangered));
+    }
+
+    @Test
+    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
+        Endangered firstEndangered = new Endangered("Lion", 1);
+        firstEndangered.save();
+        Endangered secondEndangered = new Endangered("Lion", 1);
+        secondEndangered.save();
+        assertEquals(true, Endangered.all().get(0).equals(firstEndangered));
+        assertEquals(true, Endangered.all().get(1).equals(secondEndangered));
+    }
 
 }

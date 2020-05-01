@@ -1,3 +1,6 @@
+import org.sql2o.Connection;
+
+import java.util.List;
 import java.util.Timer;
 
 public class Endangered  extends Animal {
@@ -10,5 +13,12 @@ public class Endangered  extends Animal {
 //        endangeredLevel = MAX_ENDANGERED_LEVEL / 2;
 //        type = DATABASE_TYPE;
 //        timer = new Timer();
+    }
+
+    public static List<Endangered> all() {
+        String sql = "SELECT * FROM animals";
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Endangered.class);
+        }
     }
 }
