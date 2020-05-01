@@ -44,14 +44,14 @@ public class EndangeredTest {
         assertTrue(Endangered.all().get(0).equals(testEndangered));
     }
 
-    @Test
-    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
-        Endangered firstEndangered = new Endangered("Lion", 1);
-        firstEndangered.save();
-        Endangered secondEndangered = new Endangered("Lion", 1);
-        secondEndangered.save();
-        assertEquals(true, Endangered.all().get(0).equals(firstEndangered));
-        assertEquals(true, Endangered.all().get(1).equals(secondEndangered));
-    }
+//    @Test
+//    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
+//        Endangered firstEndangered = new Endangered("Lion", 1);
+//        firstEndangered.save();
+//        Endangered secondEndangered = new Endangered("Lion", 1);
+//        secondEndangered.save();
+//        assertEquals(true, Endangered.all().get(0).equals(firstEndangered));
+//        assertEquals(true, Endangered.all().get(1).equals(secondEndangered));
+//    }
 
 }
