@@ -64,4 +64,5 @@ public class EndangeredTest {
         secondEndangered.save();
         assertEquals(Endangered.find(secondEndangered.getId()), secondEndangered);
     }
+
 }
