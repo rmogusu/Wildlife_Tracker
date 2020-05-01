@@ -34,24 +34,34 @@ public class EndangeredTest {
     public void save_successfullyAddsEndangeredAnimalToDatabase_List() {
         Endangered testEndangered= new Endangered("Lion", 1);
         testEndangered.save();
-        assertTrue(Endangered.all().get(0).equals(testEndangered));
+        Endangered  savedEndangered = Endangered.all().get(0);
+        assertEquals(testEndangered.getId(), savedEndangered.getId());
+
     }
 
     @Test
     public void save_assignsIdToEndangeredAnimal() {
         Endangered testEndangered = new Endangered("Lion", 1);
         testEndangered.save();
-        assertTrue(Endangered.all().get(0).equals(testEndangered));
+        Endangered  savedEndangered = Endangered .all().get(0);
+        assertEquals(testEndangered.getId(), savedEndangered.getId());
     }
 
-//    @Test
-//    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
-//        Endangered firstEndangered = new Endangered("Lion", 1);
-//        firstEndangered.save();
-//        Endangered secondEndangered = new Endangered("Lion", 1);
-//        secondEndangered.save();
-//        assertEquals(true, Endangered.all().get(0).equals(firstEndangered));
-//        assertEquals(true, Endangered.all().get(1).equals(secondEndangered));
-//    }
-
+    @Test
+    public void all_returnsAllInstancesOfEndangeredAnimal_true() {
+        Endangered firstEndangered = new Endangered("Lion", 1);
+        firstEndangered.save();
+        Endangered secondEndangered = new Endangered("Lion", 1);
+        secondEndangered.save();
+        assertEquals(true, Endangered.all().get(0).equals(firstEndangered));
+        assertEquals(true, Endangered.all().get(1).equals(secondEndangered));
+    }
+    @Test
+    public void find_returnsEndangeredAnimalWithSameId_secondEndangeredAnimal() {
+        Endangered firstEndangered = new Endangered("Lion", 1);
+        firstEndangered.save();
+        Endangered secondEndangered = new Endangered("Lion", 1);
+        secondEndangered.save();
+        assertEquals(Endangered.find(secondEndangered.getId()), secondEndangered);
+    }
 }
