@@ -23,12 +23,12 @@ public class EndangeredTest {
         assertEquals(1, testEndangered.getSightingId());
     }
 
-//    @Test
-//    public void equals_returnsTrueIfNameAndSightingIdAreSame_true() {
-//        EndangeredAnimal testEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        EndangeredAnimal anotherEndangeredAnimal = new EndangeredAnimal("Lion", 1);
-//        assertTrue(testEndangeredAnimal.equals(anotherEndangeredAnimal));
-//    }
+    @Test
+    public void equals_returnsTrueIfNameAndSightingIdAreSame_true() {
+        Endangered testEndangered = new Endangered("Lion", 1);
+        Endangered anotherEndangered = new Endangered("Lion", 1);
+        assertTrue(testEndangered.equals(anotherEndangered));
+    }
 //
 //    @Test
 //    public void save_returnsTrueIfEndangeredAnimalsAreTheSame() {
