@@ -1,3 +1,5 @@
+import org.sql2o.Connection;
+
 public class Sighting {
     private String species;
     private String location;
@@ -39,5 +41,15 @@ public class Sighting {
                     this.getLocation().equals(newSighting.getLocation());
         }
 
+    }
+    public void save() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "INSERT INTO sightings (rangerName,species,location) VALUES (:rangerName, :species,:location)";
+            con.createQuery(sql)
+                    .addParameter("rangerName", this.rangerName)
+                    .addParameter("species", this.species)
+                    .addParameter("location", this.location)
+                    .executeUpdate();
+        }
     }
 }
