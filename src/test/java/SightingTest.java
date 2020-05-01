@@ -41,16 +41,16 @@ public class SightingTest {
         testSighting.save();
         assertTrue(Sighting.all().get(0).equals(testSighting));
     }
-//
-//    @Test
-//    public void all_returnsAllInstancesOfSightings_true() {
-//        Sighting firstSighting = new Sighting("Rose", "Thriving","Zone D");
-//        firstSighting.save();
-//        Sighting secondSighting = new Sighting("Rose", "Endangered","Zone D");
-//        secondSighting.save();
-//        assertEquals(true, Sighting.all().get(0).equals(firstSighting));
-//        assertEquals(true, Sighting.all().get(1).equals(secondSighting));
-//    }
+
+    @Test
+    public void all_returnsAllInstancesOfSightings_true() {
+        Sighting firstSighting = new Sighting("Rose", "Endangered","Zone D");
+        firstSighting.save();
+        Sighting secondSighting = new Sighting("Rose", "Endangered","Zone D");
+        secondSighting.save();
+        assertEquals(true, Sighting.all().get(0).equals(firstSighting));
+        assertEquals(true, Sighting.all().get(1).equals(secondSighting));
+    }
 //    @Test
 //    public void save_assignsIdToObject() {
 //        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");

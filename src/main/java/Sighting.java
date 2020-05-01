@@ -1,5 +1,7 @@
 import org.sql2o.Connection;
 
+import java.util.List;
+
 public class Sighting {
     private String species;
     private String location;
@@ -50,6 +52,13 @@ public class Sighting {
                     .addParameter("species", this.species)
                     .addParameter("location", this.location)
                     .executeUpdate();
+        }
+    }
+    public static List<Sighting> all() {
+        String sql = "SELECT * FROM sightings";
+        try(Connection con = DB.sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Sighting.class);
         }
     }
 }
