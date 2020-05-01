@@ -29,12 +29,12 @@ public class SightingTest {
         Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
         assertEquals("Zone A", testSighting.getLocation());
     }
-//    @Test
-//    public void equals_returnsTrueIfSightingsAreSame_true() {
-//        Sighting firstSighting = new Sighting("Fred", "Thriving","Zone A");
-//        Sighting anotherSighting = new Sighting("Fred", "Thriving","Zone A");
-//        assertTrue(firstSighting.equals(anotherSighting));
-//    }
+    @Test
+    public void equals_returnsTrueIfSightingsAreSame_true() {
+        Sighting firstSighting = new Sighting("Fred", "Endangered","Zone A");
+        Sighting anotherSighting = new Sighting("Fred", "Endangered","Zone A");
+        assertTrue(firstSighting.equals(anotherSighting));
+    }
 //    @Test
 //    public void save_insertsObjectIntoDatabase_Sighting() {
 //        Sighting testSighting = new Sighting("Fred", "Thriving","Zone D");
