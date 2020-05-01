@@ -13,11 +13,11 @@ public class SightingTest {
         Sighting testSighting  = new Sighting("Fred", "Endangered","Zone A");
         assertEquals(true, testSighting instanceof Sighting);
     }
-//    @Test
-//    public void getRangerName_InstantiatesWithRangerName_true() throws Exception {
-//        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
-//        assertEquals("Fred", testSighting.getRangerName());
-//    }
+    @Test
+    public void getRangerName_InstantiatesWithRangerName_true() throws Exception {
+        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        assertEquals("Fred", testSighting.getRangerName());
+    }
 //
 //    @Test
 //    public void getSpecies_InstantiatesWithSpecies_true() throws Exception {

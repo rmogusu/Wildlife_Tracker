@@ -12,4 +12,32 @@ public class Sighting {
         this.rangerName = rangerName;
 
     }
+    public String getRangerName() {
+        return rangerName;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object otherSighting) {
+        if (!(otherSighting instanceof Sighting)) {
+            return false;
+        } else {
+            Sighting newSighting = (Sighting) otherSighting;
+            return this.getRangerName().equals(newSighting.getRangerName()) &&
+                    this.getSpecies().equals(newSighting.getSpecies()) &&
+                    this.getLocation().equals(newSighting.getLocation());
+        }
+
+    }
 }
