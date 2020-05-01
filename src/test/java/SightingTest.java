@@ -51,20 +51,20 @@ public class SightingTest {
         assertEquals(true, Sighting.all().get(0).equals(firstSighting));
         assertEquals(true, Sighting.all().get(1).equals(secondSighting));
     }
-//    @Test
-//    public void save_assignsIdToObject() {
-//        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
-//        testSighting.save();
-//        Sighting savedSighting= Sighting.all().get(0);
-//        assertEquals(testSighting.getId(), savedSighting.getId());
-//    }
-//
-//    @Test
-//    public void find_returnsSightingsWithSameId_secondSighting() {
-//        Sighting firstSighting = new Sighting("Fred", "Endangered","Zone A");
-//        firstSighting.save();
-//        Sighting secondSighting = new Sighting("Fred", "Thriving","Zone D");
-//        secondSighting.save();
-//        assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
-//    }
+    @Test
+    public void save_assignsIdToObject() {
+        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
+        testSighting.save();
+        Sighting savedSighting= Sighting.all().get(0);
+        assertEquals(testSighting.getId(), savedSighting.getId());
+    }
+
+    @Test
+    public void find_returnsSightingsWithSameId_secondSighting() {
+        Sighting firstSighting = new Sighting("Fred", "Endangered","Zone A");
+        firstSighting.save();
+        Sighting secondSighting = new Sighting("Fred", "Thriving","Zone D");
+        secondSighting.save();
+        assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
+    }
 }
