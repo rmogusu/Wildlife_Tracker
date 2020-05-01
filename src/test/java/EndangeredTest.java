@@ -64,5 +64,13 @@ public class EndangeredTest {
         secondEndangered.save();
         assertEquals(Endangered.find(secondEndangered.getId()), secondEndangered);
     }
-
+    @Test
+    public void save_savesSightingIdIntoDB_true() {
+        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        testSighting.save();
+        Endangered  testEndangered = new Endangered("Lion", testSighting.getId()) ;
+        testEndangered.save();
+        Endangered  savedEndangered = Endangered.find(testEndangered.getId());
+        assertEquals(savedEndangered.getSightingId() , testSighting.getId());
+    }
 }
