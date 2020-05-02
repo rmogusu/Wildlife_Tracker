@@ -1,9 +1,13 @@
 import org.sql2o.Connection;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class UnEndangered extends Animal{
     private int id;
+    private int unendangeredLevel;
+    public static final int MAX_UNENDANGERED_LEVEL = 10;
     public UnEndangered(String name,String health,String age, int sightingId) {
         this.name = name;
         this.health =health;
@@ -15,11 +19,57 @@ public class UnEndangered extends Animal{
         this.adultLevel = MAX_ADULT_LEVEL / 2;
         this.youngLevel = MAX_YOUNG_LEVEL / 2;
         this.newbornLevel = MAX_NEWBORN_LEVEL / 2;
-//        endangeredLevel = MAX_ENDANGERED_LEVEL / 2;
+        timer = new Timer();
+        unendangeredLevel = MAX_UNENDANGERED_LEVEL / 2;
 //        type = DATABASE_TYPE;
-//        timer = new Timer();
-    }
 
+    }
+    public int getUnEndangeredLevel(){
+        return unendangeredLevel ;
+    }
+    public void conserve(){
+        if (unendangeredLevel >= MAX_UNENDANGERED_LEVEL){
+            throw new UnsupportedOperationException("You have reached maximum number of conserving!");
+        }
+        unendangeredLevel++;
+    }
+    @Override
+    public void depleteLevels(){
+        if (isAlive()){
+            healthLevel--;
+            illLevel--;
+            okayLevel--;
+            adultLevel--;
+            youngLevel--;
+            newbornLevel--;
+            unendangeredLevel--;
+        }
+    }
+    @Override
+    public boolean isAlive() {
+        if (healthLevel <= MIN_ALL_LEVELS ||
+                illLevel <= MIN_ALL_LEVELS ||
+                okayLevel <= MIN_ALL_LEVELS ||
+                adultLevel <= MIN_ALL_LEVELS ||
+                youngLevel <= MIN_ALL_LEVELS ||
+                newbornLevel <= MIN_ALL_LEVELS) {
+            return false;
+        }
+        return true;
+    }
+    public void startTimer(){
+        UnEndangered  currentUnEndangered = this;
+        TimerTask timerTask = new TimerTask(){
+            @Override
+            public void run() {
+                if (!currentUnEndangered .isAlive()){
+                    cancel();
+                }
+                depleteLevels();
+            }
+        };
+        this.timer.schedule(timerTask, 0, 600);
+    }
     @Override
     public boolean equals(Object otherUnEndangered) {
         if (!(otherUnEndangered instanceof UnEndangered )) {

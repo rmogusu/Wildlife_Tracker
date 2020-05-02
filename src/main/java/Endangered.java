@@ -2,9 +2,13 @@ import org.sql2o.Connection;
 
 import java.util.List;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class Endangered  extends Animal {
     private int id;
+    private int endangeredLevel;
+    public static final int MAX_ENDANGERED_LEVEL = 10;
+
     public Endangered(String name, String health,String age,int sightingId) {
         this.name = name;
         this.health=health;
@@ -16,11 +20,45 @@ public class Endangered  extends Animal {
         this.adultLevel = MAX_ADULT_LEVEL / 2;
         this.youngLevel = MAX_YOUNG_LEVEL / 2;
         this.newbornLevel = MAX_NEWBORN_LEVEL / 2;
-//        endangeredLevel = MAX_ENDANGERED_LEVEL / 2;
+        timer = new Timer();
+       endangeredLevel = MAX_ENDANGERED_LEVEL / 2;
 //        type = DATABASE_TYPE;
-//        timer = new Timer();
-    }
 
+    }
+    public int getEndangeredLevel(){
+        return endangeredLevel ;
+    }
+    public void saving(){
+        if (endangeredLevel >= MAX_ENDANGERED_LEVEL){
+            throw new UnsupportedOperationException("You have reached maximum number of saving!");
+        }
+        endangeredLevel++;
+    }
+    @Override
+    public void depleteLevels(){
+        if (isAlive()){
+            healthLevel--;
+            illLevel--;
+            okayLevel--;
+            adultLevel--;
+            youngLevel--;
+            newbornLevel--;
+            endangeredLevel--;
+        }
+    }
+    public void startTimer(){
+        Endangered  currentEndangered = this;
+        TimerTask timerTask = new TimerTask(){
+            @Override
+            public void run() {
+                if (!currentEndangered .isAlive()){
+                    cancel();
+                }
+                depleteLevels();
+            }
+        };
+        this.timer.schedule(timerTask, 0, 600);
+    }
     @Override
     public boolean equals(Object otherEndangered) {
         if (!(otherEndangered instanceof Endangered )) {

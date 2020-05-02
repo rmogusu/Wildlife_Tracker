@@ -2,6 +2,7 @@ import org.sql2o.Connection;
 
 import java.sql.Timestamp;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class Animal {
 
@@ -83,17 +84,25 @@ public abstract class Animal {
         }
         return true;
     }
-    public void depleteLevels(){
-        healthLevel--;
-        illLevel--;
-        okayLevel--;
-        adultLevel--;
-        youngLevel--;
-        newbornLevel--;
+    public void depleteLevels() {
+        if (isAlive()) {
+            healthLevel--;
+            illLevel--;
+            okayLevel--;
+            adultLevel--;
+            youngLevel--;
+            newbornLevel--;
+        }
     }
     public void ill(){
         if (illLevel >= MAX_ILL_LEVEL){
             throw new UnsupportedOperationException("Your ill is at maximum level.!");
+        }
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE animals SET lastill = now() WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
         }
         illLevel++;
     }
@@ -101,16 +110,37 @@ public abstract class Animal {
         if (okayLevel >= MAX_OKAY_LEVEL){
             throw new UnsupportedOperationException("Your okay is at maximum level.!");
         }
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE animals SET lastokay = now() WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
         okayLevel++;
     }
     public void health(){
         if (healthLevel >= MAX_HEALTH_LEVEL){
             throw new UnsupportedOperationException("Your health is at maximum level.!");
         }
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "UPDATE animals SET lasthealth = now() WHERE id = :id";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
         healthLevel++;
     }
     public Timestamp getTimeSpotted (){
         return timeSpotted ;
+    }
+    public Timestamp getLastHealth(){
+        return lastHealth ;
+    }
+    public Timestamp getLastIll(){
+        return lastIll;
+    }
+    public Timestamp getLastOkay(){
+        return lastOkay;
     }
 
 //    @Override

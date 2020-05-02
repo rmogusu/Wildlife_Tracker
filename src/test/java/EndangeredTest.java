@@ -2,6 +2,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -231,5 +232,66 @@ public class EndangeredTest {
         Timestamp savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
         assertEquals(rightNow.getDay(), savedEndangeredTimeSpotted.getDay());
+    }
+    @Test
+    public void Endangered_recordsTimeLastHealthInDatabase() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered.save();
+        testEndangered.health();
+        Timestamp savedEndangeredLastHealth = Endangered.find(testEndangered.getId()).getLastHealth();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedEndangeredLastHealth));
+    }
+    @Test
+    public void Endangered_recordsTimeLastIllInDatabase() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered.save();
+        testEndangered.ill();
+        Timestamp savedEndangeredLastIll = Endangered.find(testEndangered.getId()).getLastIll();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedEndangeredLastIll));
+    }
+    @Test
+    public void Endangered_recordsTimeLastOkayInDatabase() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered.save();
+        testEndangered.okay();
+        Timestamp savedEndangeredLastOkay = Endangered.find(testEndangered.getId()).getLastOkay();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedEndangeredLastOkay));
+    }
+    @Test
+    public void timer_executesDepleteLevelsMethod() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        int firstHealthLevel = testEndangered.getHealthLevel();
+        testEndangered .startTimer();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException exception){}
+        int secondHealthLevel = testEndangered.getHealthLevel();
+        assertTrue(firstHealthLevel > secondHealthLevel);
+    }
+    @Test
+    public void timer_haltsAfterEndangeredAnimalDies() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered .startTimer();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException exception){}
+        assertFalse(testEndangered .isAlive());
+        assertTrue(testEndangered .getHealthLevel()>= 0);
+    }
+    @Test
+    public void Endangered_instantiatesWithHalfFullEndangeredLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered .getEndangeredLevel(), (Endangered.MAX_ENDANGERED_LEVEL / 2));
+    }
+
+    @Test(expected = UnsupportedOperationException.class)
+    public void saving_throwsExceptionIfEndangeredLevelIsAtMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered.MIN_ALL_LEVELS; i <= (Endangered .MAX_ENDANGERED_LEVEL); i++){
+            testEndangered.saving();
+        }
     }
 }
