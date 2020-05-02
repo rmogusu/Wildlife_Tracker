@@ -4,8 +4,10 @@ import java.util.List;
 
 public class UnEndangered extends Animal{
     private int id;
-    public UnEndangered(String name, int sightingId) {
+    public UnEndangered(String name,String health,String age, int sightingId) {
         this.name = name;
+        this.health =health;
+        this.age=age;
         this.sightingId = sightingId;
 //        this.healthyLevel = MAX_HEALTHY_LEVEL / 2;
 //        this.illLevel = MAX_ILL_LEVEL / 2;
@@ -14,7 +16,18 @@ public class UnEndangered extends Animal{
 //        type = DATABASE_TYPE;
 //        timer = new Timer();
     }
-
+    @Override
+    public boolean equals(Object otherUnEndangered) {
+        if (!(otherUnEndangered instanceof UnEndangered )) {
+            return false;
+        } else {
+            UnEndangered  newUnEndangered = (UnEndangered)  otherUnEndangered ;
+            return this.getName().equals(newUnEndangered.getName()) &&
+                    this.getHealth() .equals(newUnEndangered.getHealth() ) &&
+                    this.getAge() .equals(newUnEndangered.getAge() ) &&
+                    this.getSightingId() == newUnEndangered .getSightingId();
+        }
+    }
     public static List<UnEndangered> all() {
         String sql = "SELECT * FROM animals";
         try (Connection con = DB.sql2o.open()) {
