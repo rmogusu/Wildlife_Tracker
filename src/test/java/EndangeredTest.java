@@ -1,7 +1,9 @@
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -221,5 +223,13 @@ public class EndangeredTest {
         for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_OKAY_LEVEL); i++){
             testEndangered.okay();
         }
+    }
+    @Test
+    public void save_recordsTimeOfCreationInDatabase() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered .save();
+        Timestamp savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(rightNow.getDay(), savedEndangeredTimeSpotted.getDay());
     }
 }

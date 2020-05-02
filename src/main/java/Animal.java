@@ -30,7 +30,7 @@ public abstract class Animal {
     public static final int MAX_NEWBORN_LEVEL = 3;
 
     public Timestamp timeSpotted;
-    public Timestamp lastHealthy;
+    public Timestamp lastHealth;
     public Timestamp lastIll;
     public Timestamp lastOkay;
     public Timer timer;
@@ -109,6 +109,9 @@ public abstract class Animal {
         }
         healthLevel++;
     }
+    public Timestamp getTimeSpotted (){
+        return timeSpotted ;
+    }
 
 //    @Override
 //    public boolean equals(Object otherAnimal) {
@@ -123,7 +126,7 @@ public abstract class Animal {
 
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name, health,age,sightingId) VALUES (:name, :health,:age,:sightingId)";
+            String sql = "INSERT INTO animals (name, health,age,sightingId,timeSpotted) VALUES (:name, :health,:age,:sightingId,now())";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("health", this.health)
