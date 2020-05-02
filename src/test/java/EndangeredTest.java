@@ -168,4 +168,58 @@ public class EndangeredTest {
         testEndangered .health();
         assertTrue(testEndangered .getHealthLevel() > (Endangered .MAX_HEALTH_LEVEL / 2));
     }
+    @Test
+    public void endangered_HealthLevelCannotGoBeyondMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_HEALTH_LEVEL + 2); i++){
+            try {
+                testEndangered .health();
+            } catch (UnsupportedOperationException exception){ }
+
+        }
+        assertTrue(testEndangered .getHealthLevel() <= Endangered .MAX_HEALTH_LEVEL);
+    }
+    @Test(expected = UnsupportedOperationException.class)
+    public void health_throwsExceptionIfHealthLevelIsAtMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_HEALTH_LEVEL); i++){
+            testEndangered.health();
+        }
+    }
+    @Test
+    public void endangered_IllLevelCannotGoBeyondMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_ILL_LEVEL + 2); i++){
+            try {
+                testEndangered .ill();
+            } catch (UnsupportedOperationException exception){ }
+
+        }
+        assertTrue(testEndangered .getIllLevel() <= Endangered .MAX_ILL_LEVEL);
+    }
+    @Test(expected = UnsupportedOperationException.class)
+    public void ill_throwsExceptionIfIllLevelIsAtMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_ILL_LEVEL); i++){
+            testEndangered.ill();
+        }
+    }
+    @Test
+    public void endangered_OkayLevelCannotGoBeyondMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_OKAY_LEVEL + 2); i++){
+            try {
+                testEndangered .okay();
+            } catch (UnsupportedOperationException exception){ }
+
+        }
+        assertTrue(testEndangered .getOkayLevel() <= Endangered .MAX_OKAY_LEVEL);
+    }
+    @Test(expected = UnsupportedOperationException.class)
+    public void okay_throwsExceptionIfOkayLevelIsAtMaxValue(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered .MIN_ALL_LEVELS; i <= (Endangered .MAX_OKAY_LEVEL); i++){
+            testEndangered.okay();
+        }
+    }
 }

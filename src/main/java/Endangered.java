@@ -20,24 +20,7 @@ public class Endangered  extends Animal {
 //        type = DATABASE_TYPE;
 //        timer = new Timer();
     }
-    public int getHealthLevel(){
-        return healthLevel;
-    }
-    public int getIllLevel(){
-        return illLevel;
-    }
-    public int getOkayLevel(){
-        return okayLevel;
-    }
-    public int getAdultLevel(){
-        return adultLevel;
-    }
-    public int getYoungLevel(){
-        return youngLevel;
-    }
-    public int getNewbornLevel(){
-        return newbornLevel;
-    }
+
     @Override
     public boolean equals(Object otherEndangered) {
         if (!(otherEndangered instanceof Endangered )) {

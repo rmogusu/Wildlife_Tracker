@@ -54,6 +54,24 @@ public abstract class Animal {
     public int getId() {
         return id;
     }
+    public int getHealthLevel(){
+        return healthLevel;
+    }
+    public int getIllLevel(){
+        return illLevel;
+    }
+    public int getOkayLevel(){
+        return okayLevel;
+    }
+    public int getAdultLevel(){
+        return adultLevel;
+    }
+    public int getYoungLevel(){
+        return youngLevel;
+    }
+    public int getNewbornLevel(){
+        return newbornLevel;
+    }
     public boolean isAlive() {
         if (healthLevel <= MIN_ALL_LEVELS ||
                 illLevel <= MIN_ALL_LEVELS ||
@@ -74,12 +92,21 @@ public abstract class Animal {
         newbornLevel--;
     }
     public void ill(){
+        if (illLevel >= MAX_ILL_LEVEL){
+            throw new UnsupportedOperationException("Your ill is at maximum level.!");
+        }
         illLevel++;
     }
     public void okay(){
+        if (okayLevel >= MAX_OKAY_LEVEL){
+            throw new UnsupportedOperationException("Your okay is at maximum level.!");
+        }
         okayLevel++;
     }
     public void health(){
+        if (healthLevel >= MAX_HEALTH_LEVEL){
+            throw new UnsupportedOperationException("Your health is at maximum level.!");
+        }
         healthLevel++;
     }
 
