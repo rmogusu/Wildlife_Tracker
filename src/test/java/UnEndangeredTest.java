@@ -127,4 +127,9 @@ public class UnEndangeredTest {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
         assertEquals(testUnEndangered.getNewbornLevel(), (UnEndangered .MAX_NEWBORN_LEVEL / 2));
     }
+    @Test
+    public void isAlive_confirmsUnEndangeredAnimalIsAliveIfAllLevelsAboveMinimum_true(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.isAlive(), true);
+    }
 }

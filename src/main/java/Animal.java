@@ -54,7 +54,17 @@ public abstract class Animal {
     public int getId() {
         return id;
     }
-
+    public boolean isAlive() {
+        if (healthLevel <= MIN_ALL_LEVELS ||
+                illLevel <= MIN_ALL_LEVELS ||
+                okayLevel <= MIN_ALL_LEVELS ||
+                adultLevel <= MIN_ALL_LEVELS ||
+                youngLevel <= MIN_ALL_LEVELS ||
+                newbornLevel <= MIN_ALL_LEVELS) {
+            return false;
+        }
+        return true;
+    }
 //    @Override
 //    public boolean equals(Object otherAnimal) {
 //        if (!(otherAnimal instanceof Animal)) {
