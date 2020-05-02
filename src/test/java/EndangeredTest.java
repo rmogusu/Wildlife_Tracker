@@ -142,4 +142,30 @@ public class EndangeredTest {
         assertEquals(testEndangered .getYoungLevel(), (Endangered .MAX_YOUNG_LEVEL / 2) - 1);
         assertEquals(testEndangered .getNewbornLevel(), (Endangered.MAX_NEWBORN_LEVEL / 2) - 1);
     }
+    @Test
+    public void isAlive_recognizesEndangeredAnimalIsDeadWhenLevelsReachMinimum_false(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        for(int i = Endangered.MIN_ALL_LEVELS; i <= Endangered.MAX_HEALTH_LEVEL; i++){
+            testEndangered.depleteLevels();
+        }
+        assertEquals(testEndangered .isAlive(), false);
+    }
+    @Test
+    public void ill_increasesEndangeredIllLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered .ill();
+        assertTrue(testEndangered .getIllLevel() > (Endangered .MAX_ILL_LEVEL / 2));
+    }
+    @Test
+    public void okay_increasesEndangeredOkayLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered .okay();
+        assertTrue(testEndangered .getOkayLevel() > (Endangered .MAX_OKAY_LEVEL / 2));
+    }
+    @Test
+    public void health_increasesEndangeredHealthLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered .health();
+        assertTrue(testEndangered .getHealthLevel() > (Endangered .MAX_HEALTH_LEVEL / 2));
+    }
 }

@@ -73,6 +73,16 @@ public abstract class Animal {
         youngLevel--;
         newbornLevel--;
     }
+    public void ill(){
+        illLevel++;
+    }
+    public void okay(){
+        okayLevel++;
+    }
+    public void health(){
+        healthLevel++;
+    }
+
 //    @Override
 //    public boolean equals(Object otherAnimal) {
 //        if (!(otherAnimal instanceof Animal)) {
