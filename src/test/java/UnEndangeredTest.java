@@ -132,4 +132,15 @@ public class UnEndangeredTest {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
         assertEquals(testUnEndangered.isAlive(), true);
     }
+    @Test
+    public void depleteLevels_reducesAllLevels(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        testUnEndangered .depleteLevels();
+        assertEquals(testUnEndangered .getHealthLevel(), (UnEndangered.MAX_HEALTH_LEVEL / 2) - 1);
+        assertEquals(testUnEndangered .getIllLevel(), (UnEndangered .MAX_ILL_LEVEL / 2) - 1);
+        assertEquals(testUnEndangered .getOkayLevel(), (UnEndangered.MAX_OKAY_LEVEL / 2) - 1);
+        assertEquals(testUnEndangered .getAdultLevel(), (UnEndangered.MAX_ADULT_LEVEL / 2) - 1);
+        assertEquals(testUnEndangered .getYoungLevel(), (UnEndangered .MAX_YOUNG_LEVEL / 2) - 1);
+        assertEquals(testUnEndangered .getNewbornLevel(), (UnEndangered.MAX_NEWBORN_LEVEL / 2) - 1);
+    }
 }

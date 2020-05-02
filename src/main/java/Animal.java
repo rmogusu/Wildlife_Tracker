@@ -65,6 +65,14 @@ public abstract class Animal {
         }
         return true;
     }
+    public void depleteLevels(){
+        healthLevel--;
+        illLevel--;
+        okayLevel--;
+        adultLevel--;
+        youngLevel--;
+        newbornLevel--;
+    }
 //    @Override
 //    public boolean equals(Object otherAnimal) {
 //        if (!(otherAnimal instanceof Animal)) {
