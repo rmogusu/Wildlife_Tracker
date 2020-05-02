@@ -96,4 +96,34 @@ public class EndangeredTest {
         Endangered [] endangered = new Endangered[]  { firstEndangered , secondEndangered  };
         assertTrue(testSighting .getEndangered().containsAll(Arrays.asList(endangered)));
     }
+    @Test
+    public void endangered_instantiatesWithHalfFullHealthLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getHealthLevel(), (Endangered .MAX_HEALTH_LEVEL / 2));
+    }
+    @Test
+    public void endangered_instantiatesWithHalfFullsIllLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getIllLevel(), (Endangered .MAX_ILL_LEVEL / 2));
+    }
+    @Test
+    public void endangered_instantiatesWithHalfFullsOkayLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getOkayLevel(), (Endangered .MAX_OKAY_LEVEL / 2));
+    }
+    @Test
+    public void endangered_instantiatesWithHalfFullAdultLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getAdultLevel(), (Endangered .MAX_ADULT_LEVEL / 2));
+    }
+    @Test
+    public void endangered_instantiatesWithHalfFullsYoungLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getYoungLevel(), (Endangered .MAX_YOUNG_LEVEL / 2));
+    }
+    @Test
+    public void endangered_instantiatesWithHalfFullsNewbornLevel(){
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        assertEquals(testEndangered.getNewbornLevel(), (Endangered .MAX_NEWBORN_LEVEL / 2));
+    }
 }

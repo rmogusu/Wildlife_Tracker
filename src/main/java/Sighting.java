@@ -79,4 +79,12 @@ public class Sighting {
                     .executeAndFetch(Endangered .class);
         }
     }
+    public List<UnEndangered> getUnEndangered() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM animals where sightingId=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(UnEndangered .class);
+        }
+    }
 }

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.Timer;
 
 public abstract class Animal {
-    public Timer timer;
+
     public String name;
     public String health;
     public String age;
@@ -12,15 +12,28 @@ public abstract class Animal {
     public int id;
     public String type;
 
-    public int healthyLevel;
+    public int healthLevel;
     public int illLevel;
     public int okayLevel;
+    public int adultLevel;
+    public int youngLevel;
+    public int newbornLevel;
 
+
+    public static final int MAX_HEALTH_LEVEL = 37;
+    public static final int MAX_ILL_LEVEL = 10;
+    public static final int MAX_OKAY_LEVEL = 20;
+    public static final int MIN_ALL_LEVELS = 0;
+
+    public static final int MAX_ADULT_LEVEL = 70;
+    public static final int MAX_YOUNG_LEVEL = 18;
+    public static final int MAX_NEWBORN_LEVEL = 3;
 
     public Timestamp timeSpotted;
     public Timestamp lastHealthy;
     public Timestamp lastIll;
     public Timestamp lastOkay;
+    public Timer timer;
 
     public String getName() {
         return name;

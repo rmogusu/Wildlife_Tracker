@@ -9,12 +9,33 @@ public class UnEndangered extends Animal{
         this.health =health;
         this.age=age;
         this.sightingId = sightingId;
-//        this.healthyLevel = MAX_HEALTHY_LEVEL / 2;
-//        this.illLevel = MAX_ILL_LEVEL / 2;
-//        this.okayLevel = MAX_OKAY_LEVEL / 2;
+        this.healthLevel = MAX_HEALTH_LEVEL / 2;
+        this.illLevel = MAX_ILL_LEVEL / 2;
+        this.okayLevel = MAX_OKAY_LEVEL / 2;
+        this.adultLevel = MAX_ADULT_LEVEL / 2;
+        this.youngLevel = MAX_YOUNG_LEVEL / 2;
+        this.newbornLevel = MAX_NEWBORN_LEVEL / 2;
 //        endangeredLevel = MAX_ENDANGERED_LEVEL / 2;
 //        type = DATABASE_TYPE;
 //        timer = new Timer();
+    }
+    public int getHealthLevel(){
+        return healthLevel;
+    }
+    public int getIllLevel(){
+        return illLevel;
+    }
+    public int getOkayLevel(){
+        return okayLevel;
+    }
+    public int getAdultLevel(){
+        return adultLevel;
+    }
+    public int getYoungLevel(){
+        return youngLevel;
+    }
+    public int getNewbornLevel(){
+        return newbornLevel;
     }
     @Override
     public boolean equals(Object otherUnEndangered) {

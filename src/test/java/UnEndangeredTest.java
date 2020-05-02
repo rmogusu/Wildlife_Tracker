@@ -1,6 +1,8 @@
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class UnEndangeredTest {
@@ -77,11 +79,52 @@ public class UnEndangeredTest {
     }
     @Test
     public void save_savesSightingIdIntoDB_true() {
-        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        Sighting testSighting = new Sighting("Fred", "UnEndangered","Zone A");
         testSighting.save();
         UnEndangered  testUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
         testUnEndangered.save();
         UnEndangered  savedUnEndangered = UnEndangered.find(testUnEndangered.getId());
         assertEquals(savedUnEndangered.getSightingId() , testSighting.getId());
+    }
+    @Test
+    public void getUnEndangered_retrievesAllUnEndangeredFromDatabase_UnEndangeredList() {
+        Sighting testSighting = new Sighting("Fred", "UnEndangered","Zone A");
+        testSighting.save();
+        UnEndangered  firstUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
+        firstUnEndangered.save();
+        UnEndangered  secondUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
+        secondUnEndangered.save();
+        UnEndangered [] unendangered = new UnEndangered[]  { firstUnEndangered , secondUnEndangered  };
+        assertTrue(testSighting .getUnEndangered().containsAll(Arrays.asList(unendangered)));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullHealthLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getHealthLevel(), (UnEndangered .MAX_HEALTH_LEVEL / 2));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullsIllLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getIllLevel(), (UnEndangered .MAX_ILL_LEVEL / 2));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullsOkayLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getOkayLevel(), (UnEndangered .MAX_OKAY_LEVEL / 2));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullAdultLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getAdultLevel(), (UnEndangered .MAX_ADULT_LEVEL / 2));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullsYoungLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getYoungLevel(), (UnEndangered .MAX_YOUNG_LEVEL / 2));
+    }
+    @Test
+    public void unEndangered_instantiatesWithHalfFullsNewbornLevel(){
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        assertEquals(testUnEndangered.getNewbornLevel(), (UnEndangered .MAX_NEWBORN_LEVEL / 2));
     }
 }
