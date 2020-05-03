@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Endangered  extends Animal {
+public class Endangered  extends Animal implements DatabaseManagement {
     private int id;
     private int endangeredLevel;
     public static final int MAX_ENDANGERED_LEVEL = 10;

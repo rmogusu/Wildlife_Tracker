@@ -67,4 +67,11 @@ public class SightingTest {
         secondSighting.save();
         assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
     }
+    @Test
+    public void delete_deletesSighting_true() {
+        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A");
+        testSighting.save();
+        testSighting.delete();
+        assertEquals(0, Sighting .all().size());
+    }
 }

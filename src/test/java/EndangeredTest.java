@@ -294,4 +294,11 @@ public class EndangeredTest {
             testEndangered.saving();
         }
     }
+    @Test
+    public void delete_deletesEndangeredAnimal_true() {
+        Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
+        testEndangered.save();
+        testEndangered.delete();
+        assertEquals(null, Endangered .find(testEndangered.getId()));
+    }
 }
