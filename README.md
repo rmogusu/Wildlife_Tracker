@@ -19,9 +19,9 @@ Rose Mogusu.
 #### Run the following commands:
 * CREATE DATABASE wildlife_tracker;
 * \c wildlife_tracker;
-* CREATE TABLE animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar,sightingId int,timeSpotted timestamp,lasthealth timestamp,lastill timestamp,lastokay timestamp,type varchar);
-* CREATE TABLE sightings (id serial PRIMARY KEY, rangerName varchar, species verchar location varchar,rangerId int);
-* CREATE TABLE rangers (id serial PRIMARY KEY,name varchar,badgeNo int,contact int);
+* CREATE TABLE animals (id serial PRIMARY KEY, name varchar, health varchar, age varchar, sightingId int, timeSpotted timestamp, lasthealth timestamp, lastill timestamp, lastokay timestamp, type varchar);
+* CREATE TABLE sightings (id serial PRIMARY KEY, rangerName varchar, species varchar , location varchar, rangerId int);
+* CREATE TABLE rangers (id serial PRIMARY KEY,name varchar, badgeNo int, contact int);
 * CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
 
