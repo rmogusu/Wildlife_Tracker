@@ -143,17 +143,6 @@ public abstract class Animal {
         return lastOkay;
     }
 
-//    @Override
-//    public boolean equals(Object otherAnimal) {
-//        if (!(otherAnimal instanceof Animal)) {
-//            return false;
-//        } else {
-//            Animal newAnimal = (Animal) otherAnimal;
-//            return this.getName().equals(newAnimal.getName()) &&
-//                    this.getSightingId() == newAnimal.getSightingId();
-//        }
-//    }
-
     public void save() {
         try (Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO animals (name, health,age,sightingId,timeSpotted,type) VALUES (:name, :health,:age,:sightingId,now(),:type)";

@@ -1,0 +1,46 @@
+{{#partial "content"}}
+    <div class ="hero-card">
+        {{#if editSquad}}
+            <h1>Edit this Squad!</h1>
+            <form action="/squads/{{squad.id}}" method="post">
+                <label for="newSquadName">Edit this squad's Name</label>
+                <input id="newSquadName" name="newSquadName" type="text" value="{{squad.name}}">
+                <button type="submit" class="btn btn-default">Submit!</button>
+            </form>
+        {{else}}
+            <h2>The greatness of a nation can be judged by the way its animals are treated.</h2>
+            <h1>Record a new sighting!</h1>
+        <form action="/squads" method="post">
+            <div class="form-group">
+                <fieldset>
+                    <input id="rangerName" name="rangerName" placeholder="Ranger's  Name:" class="form-control" type="text"  required>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <select class="form-control" name="species" id="species"   required>
+                        <option value="--select  Animal's species--">--select Animal species--</option>
+                        <option value="Endangered">Endangered</option>
+                        <option value="UnEndangered">UnEndangered</option>
+                    </select>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <select class="form-control" name="location" id="location"   required>
+                        <option value="--select  location--">--select location--</option>
+                        <option value="Zone A">Zone A</option>
+                        <option value="Zone B">Zone B</option>
+                        <option value="Zone C">Zone C</option>
+                        <option value="Zone D">Zone D</option>
+                    </select>
+                </fieldset>
+            </div>
+            <button type="submit" class="btn btn-default">Go!</button>
+        {{/if}}
+    </form>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
