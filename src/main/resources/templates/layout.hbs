@@ -25,11 +25,11 @@
                     SquadList <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    {{#if squads}}
-                        {{#each squads}}
-                            <li><a href="/squads/{{id}}">{{name}}</a></li>
+                    {{#if sightings}}
+                        {{#each sightings}}
+                            <li><a href="/squads/{{id}}">{{rangerName}}</a></li>
                         {{/each}}
-                        <li><a href="/squad/new">CreateNewSquad</a></li>
+                        <li><a href="/sighting/new">Add new sighting</a></li>
 
                     {{else}}
                         <li><a href="/squad/new">CreateNewSquad</a></li>

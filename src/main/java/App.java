@@ -30,6 +30,22 @@ public class App {
             model.put("sightings", sightings);
             return new ModelAndView(model, "sighting-form.hbs");
         }, new HandlebarsTemplateEngine());
-
+        //post: process new sighting form
+        post("/sightings", (req, res) -> { //new
+            Map<String, Object> model = new HashMap<>();
+            String rangerName = req.queryParams("rangerName");
+            String species = req.queryParams("species");
+            String  location = req.queryParams("location");
+            Sighting newSighting = new Sighting(rangerName,species, location,1);
+            newSighting.save();
+//            try {
+//                Sighting sighting = new Sighting(rangerName,species,location,rangerId) ;
+//                sighting.save();
+//            } catch (IllegalArgumentException exception) {
+//                System.out.println("Please enter an animal name.");
+//            }
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
     }
 }
