@@ -1,5 +1,6 @@
 import org.sql2o.Connection;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sighting implements DatabaseManagement {
@@ -7,13 +8,15 @@ public class Sighting implements DatabaseManagement {
     private String location;
     private String rangerName;
     private int id;
+    private int rangerId;
 
 
-    public Sighting(String rangerName, String species, String location) {
+    public Sighting(String rangerName, String species, String location, int rangerId) {
 
         this.species = species;
         this.location = location;
         this.rangerName = rangerName;
+        this.rangerId =rangerId;
 
     }
     public String getRangerName() {
@@ -27,7 +30,9 @@ public class Sighting implements DatabaseManagement {
     public String getLocation() {
         return location;
     }
-
+    public int getRangerId(){
+        return rangerId;
+    }
     public int getId() {
         return id;
     }
@@ -40,18 +45,20 @@ public class Sighting implements DatabaseManagement {
             Sighting newSighting = (Sighting) otherSighting;
             return this.getRangerName().equals(newSighting.getRangerName()) &&
                     this.getSpecies().equals(newSighting.getSpecies()) &&
-                    this.getLocation().equals(newSighting.getLocation());
+                    this.getLocation().equals(newSighting.getLocation())&&
+                    this.getRangerId() == newSighting.getRangerId();
         }
 
     }
     @Override
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sightings (rangerName,species,location) VALUES (:rangerName, :species,:location)";
+            String sql = "INSERT INTO sightings (rangerName,species,location,rangerId) VALUES (:rangerName, :species,:location,:rangerId)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("rangerName", this.rangerName)
                     .addParameter("species", this.species)
                     .addParameter("location", this.location)
+                    .addParameter("rangerId", this.rangerId)
                     .executeUpdate()
                     .getKey();
         }
@@ -72,22 +79,28 @@ public class Sighting implements DatabaseManagement {
             return sighting;
         }
     }
-    public List<Endangered> getEndangered() {
-        try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM animals where sightingId=:id";
-            return con.createQuery(sql)
-                    .addParameter("id", this.id)
-                    .executeAndFetch(Endangered .class);
-        }
+
+public List<Object> getAnimals() {
+    List<Object> allAnimals = new ArrayList<Object>();
+
+    try(Connection con = DB.sql2o.open()) {
+        String sqlEndangered = "SELECT * FROM animals WHERE sightingId=:id AND type='endangered';";
+        List<Endangered > endangered= con.createQuery(sqlEndangered)
+                .addParameter("id", this.id)
+                .throwOnMappingFailure(false)
+                .executeAndFetch(Endangered .class);
+        allAnimals.addAll(endangered);
+
+        String sqlUnEndangered = "SELECT * FROM animals WHERE sightingId=:id AND type='unEndangered';";
+        List<UnEndangered > unEndangered = con.createQuery(sqlUnEndangered)
+                .addParameter("id", this.id)
+                .throwOnMappingFailure(false)
+                .executeAndFetch(UnEndangered .class);
+        allAnimals .addAll(unEndangered);
     }
-    public List<UnEndangered> getUnEndangered() {
-        try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM animals where sightingId=:id";
-            return con.createQuery(sql)
-                    .addParameter("id", this.id)
-                    .executeAndFetch(UnEndangered .class);
-        }
-    }
+
+    return allAnimals;
+}
     @Override
     public void delete() {
         try(Connection con = DB.sql2o.open()) {

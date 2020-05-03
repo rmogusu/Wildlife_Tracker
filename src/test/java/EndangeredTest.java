@@ -81,24 +81,14 @@ public class EndangeredTest {
     }
     @Test
     public void save_savesSightingIdIntoDB_true() {
-        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
+        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A",1);
         testSighting.save();
         Endangered  testEndangered = new Endangered("Lion","ill","newborn", testSighting.getId()) ;
         testEndangered.save();
         Endangered  savedEndangered = Endangered.find(testEndangered.getId());
         assertEquals(savedEndangered.getSightingId() , testSighting.getId());
     }
-    @Test
-    public void getEndangered_retrievesAllEndangeredFromDatabase_EndangeredList() {
-        Sighting testSighting = new Sighting("Fred", "Endangered","Zone A");
-        testSighting.save();
-        Endangered  firstEndangered = new Endangered("Lion","ill","newborn", testSighting.getId()) ;
-        firstEndangered.save();
-        Endangered  secondEndangered = new Endangered("Lion","ill","newborn", testSighting.getId()) ;
-        secondEndangered.save();
-        Endangered [] endangered = new Endangered[]  { firstEndangered , secondEndangered  };
-        assertTrue(testSighting .getEndangered().containsAll(Arrays.asList(endangered)));
-    }
+
     @Test
     public void endangered_instantiatesWithHalfFullHealthLevel(){
         Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
@@ -294,6 +284,7 @@ public class EndangeredTest {
             testEndangered.saving();
         }
     }
+
     @Test
     public void delete_deletesEndangeredAnimal_true() {
         Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);

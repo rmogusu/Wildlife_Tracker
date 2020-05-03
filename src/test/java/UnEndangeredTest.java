@@ -48,12 +48,12 @@ public class UnEndangeredTest {
 
     @Test
     public void save_successfullyAddsUnEndangeredAnimalToDatabase_List() {
-        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn",1 );
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
         testUnEndangered.save();
-        Endangered  savedUnEndangered = Endangered.all().get(0);
+        UnEndangered  savedUnEndangered = UnEndangered.all().get(0);
         assertEquals(testUnEndangered.getId(), savedUnEndangered.getId());
-
     }
+
 
     @Test
     public void save_assignsIdToUnEndangeredAnimal() {
@@ -82,24 +82,14 @@ public class UnEndangeredTest {
     }
     @Test
     public void save_savesSightingIdIntoDB_true() {
-        Sighting testSighting = new Sighting("Fred", "UnEndangered","Zone A");
+        Sighting testSighting = new Sighting("Fred", "UnEndangered","Zone A",1);
         testSighting.save();
         UnEndangered  testUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
         testUnEndangered.save();
         UnEndangered  savedUnEndangered = UnEndangered.find(testUnEndangered.getId());
         assertEquals(savedUnEndangered.getSightingId() , testSighting.getId());
     }
-    @Test
-    public void getUnEndangered_retrievesAllUnEndangeredFromDatabase_UnEndangeredList() {
-        Sighting testSighting = new Sighting("Fred", "UnEndangered","Zone A");
-        testSighting.save();
-        UnEndangered  firstUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
-        firstUnEndangered.save();
-        UnEndangered  secondUnEndangered = new UnEndangered("Lion","ill","newborn", testSighting.getId()) ;
-        secondUnEndangered.save();
-        UnEndangered [] unendangered = new UnEndangered[]  { firstUnEndangered , secondUnEndangered  };
-        assertTrue(testSighting .getUnEndangered().containsAll(Arrays.asList(unendangered)));
-    }
+
     @Test
     public void unEndangered_instantiatesWithHalfFullHealthLevel(){
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
@@ -298,6 +288,15 @@ public class UnEndangeredTest {
             testUnEndangered.conserve();
         }
     }
+//    @Test
+//    public void endangered_recordsTimeLastEndangeredInDatabase() {
+//        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+//        testUnEndangered .save();
+//        testUnEndangered.conserve();
+//        Timestamp savedUnEndangeredLastConserved = UnEndangered.find(testUnEndangered.getId()).getLastConserved();
+//        Timestamp rightNow = new Timestamp(new Date().getTime());
+//        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUnEndangeredLastConserved));
+//    }
     @Test
     public void delete_deletesEndangeredAnimal_true() {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);

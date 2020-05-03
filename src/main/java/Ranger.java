@@ -2,7 +2,7 @@ import org.sql2o.Connection;
 
 import java.util.List;
 
-public class Ranger {
+public class Ranger implements DatabaseManagement{
     private String name;
     private int badgeNo;
     private int contact;
@@ -40,7 +40,7 @@ public class Ranger {
         }
 
     }
-
+    @Override
     public void save() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO rangers (name,badgeNo,contact) VALUES (:name, :badgeNo,:contact)";
@@ -59,6 +59,7 @@ public class Ranger {
                     .executeAndFetch(Ranger.class);
         }
     }
+
     public static Ranger find(int id) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM rangers where id=:id";
@@ -68,12 +69,21 @@ public class Ranger {
             return ranger;
         }
     }
+    @Override
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "DELETE FROM rangers WHERE id = :id;";
             con.createQuery(sql)
                     .addParameter("id", this.id)
                     .executeUpdate();
+        }
+    }
+    public List<Sighting> getSightings() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM sightings WHERE rangerId=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(Sighting.class);
         }
     }
 }

@@ -1,6 +1,8 @@
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class RangerTest {
@@ -69,5 +71,16 @@ public class RangerTest {
         testRanger.save();
         testRanger.delete();
         assertEquals(0, Ranger .all().size());
+    }
+    @Test
+    public void getSightings_retrievesAllSightingsFromDatabase_sightingsList() {
+        Ranger testRanger  = new Ranger("Rose",12345, 0712121212);
+        testRanger.save();
+        Sighting firstSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
+        firstSighting.save();
+        Sighting secondSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
+        secondSighting.save();
+        Sighting [] sightings = new Sighting[]{ firstSighting , secondSighting};
+        assertTrue(testRanger.getSightings().containsAll(Arrays.asList(sightings)));
     }
 }
