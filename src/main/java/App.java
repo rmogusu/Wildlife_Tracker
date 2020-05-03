@@ -38,12 +38,6 @@ public class App {
             String  location = req.queryParams("location");
             Sighting newSighting = new Sighting(rangerName,species, location,1);
             newSighting.save();
-//            try {
-//                Sighting sighting = new Sighting(rangerName,species,location,rangerId) ;
-//                sighting.save();
-//            } catch (IllegalArgumentException exception) {
-//                System.out.println("Please enter an animal name.");
-//            }
             res.redirect("/");
             return null;
         }, new HandlebarsTemplateEngine());
