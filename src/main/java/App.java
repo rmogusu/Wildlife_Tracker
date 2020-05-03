@@ -33,13 +33,33 @@ public class App {
         //post: process new sighting form
         post("/sightings", (req, res) -> { //new
             Map<String, Object> model = new HashMap<>();
+            List<Sighting> sightings = Sighting.all();
+            model.put("sightings", sightings);
             String rangerName = req.queryParams("rangerName");
             String species = req.queryParams("species");
             String  location = req.queryParams("location");
             Sighting newSighting = new Sighting(rangerName,species, location,1);
             newSighting.save();
-            res.redirect("/");
-            return null;
+            return new ModelAndView(model, "sighting-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+        //show new Endangered form
+        get("/endangered/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Endangered> endangereds = Endangered.all();
+            model.put("endangereds", endangereds);
+            return new ModelAndView(model, "endangered-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        //post: process new Endangered form
+        post("/endangered", (req, res) -> { //new
+            Map<String, Object> model = new HashMap<>();
+            List<Endangered> endangered = Endangered.all();
+            model.put("endangered", endangered);
+            String name = req.queryParams("name");
+            String health = req.queryParams("health");
+            String  age = req.queryParams("age");
+            Endangered  newEndangered = new Endangered(name,health, age,1) ;
+            newEndangered.save();
+            return new ModelAndView(model, "endangered-detail.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }

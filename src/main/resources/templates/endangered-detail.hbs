@@ -3,24 +3,26 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col"> Ranger's Name:</th>
-                <th scope="col"> Species:</th>
-                <th scope="col"> Location:</th>
+                <th scope="col"> Animal's Name:</th>
+                <th scope="col"> Health:</th>
+                <th scope="col"> Age:</th>
+                <th scope="col"> TimeSpotted:</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-            {{#if sightings}}
-                {{#each sightings}}
-                        <td>{{ rangerName }}</td>
-                        <td>{{ species }}</td>
-                        <td>{{ location}}</td>
+            {{#if endangered}}
+                {{#each endangered}}
+                        <td>{{ name }}</td>
+                        <td>{{ health }}</td>
+                        <td>{{ age }}</td>
+                        <td>{{ timeSpotted }}</td>
                     </tr>
                 {{/each}}
             {{else}}
-                <p>No Sightings Recorded yet !</p>
+                <p>No Endangered Recorded yet !</p>
             {{/if}}
-            <p>current sightings :</p>
+            <p>current Endangered Animals :</p>
             </tbody>
         </table>
 
