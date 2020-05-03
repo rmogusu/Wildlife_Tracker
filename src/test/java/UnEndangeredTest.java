@@ -298,4 +298,11 @@ public class UnEndangeredTest {
             testUnEndangered.conserve();
         }
     }
+    @Test
+    public void delete_deletesEndangeredAnimal_true() {
+        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+        testUnEndangered.save();
+        testUnEndangered.delete();
+        assertEquals(null, UnEndangered .find(testUnEndangered.getId()));
+    }
 }
