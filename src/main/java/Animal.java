@@ -129,12 +129,10 @@ public abstract class Animal {
         }
         healthLevel++;
     }
-//    public Timestamp  getTimeSpotted (){
-//        return timeSpotted ;
-//    }
-    public String getTimeSpotted(){
-        return String.format("%1$TD %1$TR", timeSpotted );
+    public Timestamp  getTimeSpotted (){
+        return timeSpotted ;
     }
+
     public Timestamp getLastHealth(){
         return lastHealth ;
     }

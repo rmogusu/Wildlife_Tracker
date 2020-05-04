@@ -1,0 +1,33 @@
+{{#partial "content"}}
+    <div class ="cards">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col"> Ranger's Name:</th>
+                <th scope="col"> Badge_No:</th>
+                <th scope="col"> Contact:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            {{#if rangers}}
+                {{#each rangers}}
+                        <td>{{ name }}</td>
+                        <td>{{ badgeNo }}</td>
+                        <td>{{ contact }}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <p>No Sightings Recorded yet !</p>
+            {{/if}}
+            <p>current sightings :</p>
+            </tbody>
+        </table>
+
+
+        <a href="/"><button style="font-weight:10px;" name="submit" type="submit" id="sub" >Back!</button></a>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnEndangeredTest" time="15.516" tests="38" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="11.0.5+10"/>
+    <property name="sun.boot.library.path" value="/home/rose/.sdkman/candidates/java/11.0.5.hs-adpt/lib"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/rose/IdeaProjects/Wildlife_Tracker"/>
+    <property name="java.vm.vendor" value="AdoptOpenJDK"/>
+    <property name="java.vendor.url" value="https://adoptopenjdk.net/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/rose/IdeaProjects/Wildlife_Tracker"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="11.0.5+10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/usr/share/maven/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="55.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="5.3.0-46-generic"/>
+    <property name="library.jansi.path" value="/usr/share/maven/lib/jansi-native"/>
+    <property name="user.home" value="/home/rose"/>
+    <property name="user.timezone" value="Africa/Maputo"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="user.name" value="rose"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher heroku:deploy"/>
+    <property name="java.home" value="/home/rose/.sdkman/candidates/java/11.0.5.hs-adpt"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="11.0.5"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="java.vendor" value="AdoptOpenJDK"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2019-10-15"/>
+    <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-build/issues"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="AdoptOpenJDK"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="unEndangered_instantiatesWithHalfFullHealthLevel" classname="UnEndangeredTest" time="0.015"/>
+  <testcase name="all_returnsAllInstancesOfUnEndangeredAnimal_true" classname="UnEndangeredTest" time="0.074"/>
+  <testcase name="UnEndangered_instantiatesWithHalfFullUnEndangeredLevel" classname="UnEndangeredTest" time="0.005"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsIllLevel" classname="UnEndangeredTest" time="0.009"/>
+  <testcase name="timer_executesDepleteLevelsMethod" classname="UnEndangeredTest" time="6.009"/>
+  <testcase name="delete_deletesEndangeredAnimal_true" classname="UnEndangeredTest" time="0.895"/>
+  <testcase name="unEndangered_HealthLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.108"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsYoungLevel" classname="UnEndangeredTest" time="0.007"/>
+  <testcase name="find_returnsUnEndangeredAnimalWithSameId_secondUnEndangeredAnimal" classname="UnEndangeredTest" time="0.056"/>
+  <testcase name="unEndangered_IllLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.039"/>
+  <testcase name="save_recordsTimeOfCreationInDatabase" classname="UnEndangeredTest" time="0.038">
+    <error message="Cannot format given Object as a Date" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Cannot format given Object as a Date
+	at UnEndangeredTest.save_recordsTimeOfCreationInDatabase(UnEndangeredTest.java:237)
+</error>
+  </testcase>
+  <testcase name="isAlive_confirmsUnEndangeredAnimalIsAliveIfAllLevelsAboveMinimum_true" classname="UnEndangeredTest" time="0.005"/>
+  <testcase name="ill_increasesUnEndangeredIllLevel" classname="UnEndangeredTest" time="0.015"/>
+  <testcase name="save_assignsIdToUnEndangeredAnimal" classname="UnEndangeredTest" time="0.034"/>
+  <testcase name="unEndangered_OkayLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.056"/>
+  <testcase name="health_increasesUnEndangeredHealthLevel" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithHealth_String" classname="UnEndangeredTest" time="0.007"/>
+  <testcase name="unEndangered_recordsTimeLastHealthyInDatabase" classname="UnEndangeredTest" time="0.045"/>
+  <testcase name="timer_haltsAfterEndangeredAnimalDies" classname="UnEndangeredTest" time="6.01"/>
+  <testcase name="health_throwsExceptionIfHealthLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.11"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullAdultLevel" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="saving_throwsExceptionIfEndangeredLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.008"/>
+  <testcase name="UnEndangeredAnimal_instantiatesCorrectly_true" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="unEndangered_recordsTimeLastIllInDatabase" classname="UnEndangeredTest" time="1.554"/>
+  <testcase name="equals_returnsTrueIfNameAndSightingIdAreSame_true" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsNewbornLevel" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="okay_increasesUnEndangeredOkayLevel" classname="UnEndangeredTest" time="0.009"/>
+  <testcase name="save_savesSightingIdIntoDB_true" classname="UnEndangeredTest" time="0.1"/>
+  <testcase name="isAlive_recognizesUnEndangeredAnimalIsDeadWhenLevelsReachMinimum_false" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsOkayLevel" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithAge_String" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="unEndangered_recordsTimeLastOkayInDatabase" classname="UnEndangeredTest" time="0.076"/>
+  <testcase name="ill_throwsExceptionIfIllLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.036"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithSightingId_int" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="depleteLevels_reducesAllLevels" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="save_successfullyAddsUnEndangeredAnimalToDatabase_List" classname="UnEndangeredTest" time="0.038"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithName_String" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="okay_throwsExceptionIfOkayLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.065"/>
+</testsuite>

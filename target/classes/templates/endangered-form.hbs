@@ -1,0 +1,48 @@
+{{#partial "content"}}
+    <div class ="sighting-card">
+        {{#if editEndangered}}
+            <h1>Edit this Endangered animal!</h1>
+            <form action="/sightings/{{endangered.id}}" method="post">
+                <label for="newRangerName">Edit this sighting</label>
+                <input id="newRangerName" name="newRangerName" type="text" value="{{sighting.rangerName}}">
+                <button type="submit" class="btn btn-default">Submit!</button>
+            </form>
+        {{else}}
+            <h2>Save it to cherish or leave it to perish.</h2>
+            <h1>Record a new  Animal!</h1>
+        <form action="/endangered" method="post">
+
+                <div class="form-group">
+                    <fieldset>
+                        <input id="name" name="name" placeholder="Animal's  Name:" class="form-control" type="text"  required>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <select class="form-control" name="health" id="health"   required>
+                            <option value="--select  Animal's health--">--select Animal health--</option>
+                            <option value="Health">Health</option>
+                            <option value="Ill">Ill</option>
+                            <option value="Okay">Okay</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <select class="form-control" name="age" id="age"   required>
+                            <option value="--select  location--">--select location--</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Youth">Youth</option>
+                            <option value="Newborn">Newborn</option>
+                        </select>
+                    </fieldset>
+                </div>
+
+            <button type="submit" class="btn btn-default">Add!</button>
+        {{/if}}
+    </form>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

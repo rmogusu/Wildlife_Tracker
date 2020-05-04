@@ -112,7 +112,7 @@ public class SightingTest {
     public void save_recordsTimeOfCreationInDatabase() {
         Sighting testSighting = new Sighting("Rose", "Endangered", "Zone D",1);
         testSighting.save();
-        String savedSightingTimeSpotted = Sighting.find(testSighting.getId()).getTimeSpotted();
+        Timestamp savedSightingTimeSpotted = Sighting.find(testSighting.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
         assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedSightingTimeSpotted));
 

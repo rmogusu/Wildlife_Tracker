@@ -38,8 +38,8 @@ public class Sighting implements DatabaseManagement {
     public int getId() {
         return id;
     }
-    public String getTimeSpotted(){
-        return String.format("%1$TD %1$TR", timeSpotted );
+    public Timestamp  getTimeSpotted(){
+        return timeSpotted ;
     }
     @Override
     public boolean equals(Object otherSighting) {

@@ -1,0 +1,35 @@
+{{#partial "content"}}
+    <div class ="cards">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col"> Animal's Name:</th>
+                <th scope="col"> Health:</th>
+                <th scope="col"> Age:</th>
+                <th scope="col"> TimeSpotted:</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            {{#if endangereds}}
+                {{#each endangereds}}
+                        <td>{{ name }}</td>
+                        <td>{{ health }}</td>
+                        <td>{{ age }}</td>
+                        <td>{{ timeSpotted }}</td>
+                    </tr>
+                {{/each}}
+            {{else}}
+                <p>No Endangered Recorded yet !</p>
+            {{/if}}
+            <p>current Endangered Animals :</p>
+            </tbody>
+        </table>
+
+
+        <a href="/"><button style="font-weight:10px;" name="submit" type="submit" id="sub" >Back!</button></a>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

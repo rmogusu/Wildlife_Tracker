@@ -222,7 +222,7 @@ public class EndangeredTest {
     public void save_recordsTimeOfCreationInDatabase() {
         Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
         testEndangered .save();
-        String savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
+        Timestamp savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
         assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedEndangeredTimeSpotted));
 

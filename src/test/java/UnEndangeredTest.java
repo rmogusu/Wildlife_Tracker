@@ -220,23 +220,23 @@ public class UnEndangeredTest {
             testUnEndangered.okay();
         }
     }
-//    @Test
-//    public void save_recordsTimeOfCreationInDatabase() {
-//        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
-//        testUnEndangered .save();
-//        Timestamp savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
-//        Timestamp rightNow = new Timestamp(new Date().getTime());
-//       assertEquals(rightNow.getDay(), savedUnEndangeredTimeSpotted.getDay());
-//    }
     @Test
     public void save_recordsTimeOfCreationInDatabase() {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
         testUnEndangered .save();
-        String  savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
+        Timestamp savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
-        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUnEndangeredTimeSpotted));
-
+       assertEquals(rightNow.getDay(), savedUnEndangeredTimeSpotted.getDay());
     }
+//    @Test
+//    public void save_recordsTimeOfCreationInDatabase() {
+//        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+//        testUnEndangered .save();
+//        String  savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
+//        Timestamp rightNow = new Timestamp(new Date().getTime());
+//        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUnEndangeredTimeSpotted));
+//
+//    }
     @Test
     public void unEndangered_recordsTimeLastHealthyInDatabase() {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
