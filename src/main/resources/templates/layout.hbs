@@ -18,16 +18,17 @@
         <ul class="nav nav-tabs">
             <li role="presentation" ><a href="/">Home</a></li>
             <li role="presentation"><a href="/sighting/new">Add Sighting</a></li>
-            <li role="presentation"><a href="/endangered/new">Add Endangered</a></li>
+            <li role="presentation"><a href="/endangered/new">Add Animal</a></li>
+            <li role="presentation"><a href="/ranger/new">Add Ranger</a></li>
 
             <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     Ranger's List <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    {{#if sightings}}
-                        {{#each sightings}}
-                            <li><a href="/animals/{{id}}">{{rangerName}}</a></li>
+                    {{#if rangers}}
+                        {{#each rangers}}
+                            <li><a href="/rangers/{{id}}">{{name}}</a></li>
                         {{/each}}
                         <li><a href="/sighting/new">Add new sighting</a></li>
 

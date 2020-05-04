@@ -8,34 +8,36 @@
                 <button type="submit" class="btn btn-default">Submit!</button>
             </form>
         {{else}}
-            <h2>The greatness of a nation can be judged by the way it's animals are treated.</h2>
-            <h1>Record a new Endangered animal!</h1>
+            <h2>Save it to cherish or leave it to perish.</h2>
+            <h1>Record a new  Animal!</h1>
         <form action="/endangered" method="post">
-            <div class="form-group">
-                <fieldset>
-                    <input id="name" name="name" placeholder="Animal's  Name:" class="form-control" type="text"  required>
-                </fieldset>
-            </div>
-            <div class="form-group">
-                <fieldset>
-                    <select class="form-control" name="health" id="health"   required>
-                        <option value="--select  Animal's health--">--select Animal health--</option>
-                        <option value="Health">Health</option>
-                        <option value="Ill">Ill</option>
-                        <option value="Okay">Okay</option>
-                    </select>
-                </fieldset>
-            </div>
-            <div class="form-group">
-                <fieldset>
-                    <select class="form-control" name="age" id="age"   required>
-                        <option value="--select  location--">--select location--</option>
-                        <option value="Adult">Adult</option>
-                        <option value="Youth">Youth</option>
-                        <option value="Newborn">Newborn</option>
-                    </select>
-                </fieldset>
-            </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <input id="name" name="name" placeholder="Animal's  Name:" class="form-control" type="text"  required>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <select class="form-control" name="health" id="health"   required>
+                            <option value="--select  Animal's health--">--select Animal health--</option>
+                            <option value="Health">Health</option>
+                            <option value="Ill">Ill</option>
+                            <option value="Okay">Okay</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <select class="form-control" name="age" id="age"   required>
+                            <option value="--select  location--">--select location--</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Youth">Youth</option>
+                            <option value="Newborn">Newborn</option>
+                        </select>
+                    </fieldset>
+                </div>
+
             <button type="submit" class="btn btn-default">Add!</button>
         {{/if}}
     </form>

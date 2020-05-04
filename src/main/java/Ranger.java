@@ -78,12 +78,14 @@ public class Ranger implements DatabaseManagement{
                     .executeUpdate();
         }
     }
-    public List<Sighting> getSightings() {
+    public static List<Sighting> getSightings(int rangerId) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM sightings WHERE rangerId=:id";
             return con.createQuery(sql)
-                    .addParameter("id", this.id)
+                    .addParameter("id", rangerId)
                     .executeAndFetch(Sighting.class);
         }
     }
-}
+
+    }
+

@@ -3,6 +3,7 @@ import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -219,13 +220,22 @@ public class UnEndangeredTest {
             testUnEndangered.okay();
         }
     }
+//    @Test
+//    public void save_recordsTimeOfCreationInDatabase() {
+//        UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
+//        testUnEndangered .save();
+//        Timestamp savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
+//        Timestamp rightNow = new Timestamp(new Date().getTime());
+//       assertEquals(rightNow.getDay(), savedUnEndangeredTimeSpotted.getDay());
+//    }
     @Test
     public void save_recordsTimeOfCreationInDatabase() {
         UnEndangered testUnEndangered = new UnEndangered("Lion","ill","newborn", 1);
         testUnEndangered .save();
-        Timestamp savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
+        String  savedUnEndangeredTimeSpotted = UnEndangered.find(testUnEndangered.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
-        assertEquals(rightNow.getDay(), savedUnEndangeredTimeSpotted.getDay());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedUnEndangeredTimeSpotted));
+
     }
     @Test
     public void unEndangered_recordsTimeLastHealthyInDatabase() {

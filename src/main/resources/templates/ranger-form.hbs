@@ -1,0 +1,36 @@
+{{#partial "content"}}
+    <div class ="sighting-card">
+        {{#if editSighting}}
+            <h1>Edit this Sighting!</h1>
+            <form action="/sightings/{{sighting.id}}" method="post">
+                <label for="newRangerName">Edit this sighting</label>
+                <input id="newRangerName" name="newRangerName" type="text" value="{{sighting.rangerName}}">
+                <button type="submit" class="btn btn-default">Submit!</button>
+            </form>
+        {{else}}
+            <h2>I can't keep calm because i am a forest Ranger.</h2>
+            <h1>Record a new Ranger!</h1>
+        <form action="/rangers" method="post">
+            <div class="form-group">
+                <fieldset>
+                    <input id="name" name="name" placeholder="Ranger's  Name:" class="form-control" type="text"  required>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <input id="badgeNo" name="badgeNo" placeholder="Ranger's  BadgeNo:" class="form-control" type="number"  required>
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    <input id="contact" name="contact" placeholder="Ranger's  contact:" class="form-control" type="contact"  required>
+                </fieldset>
+            </div>
+            <button type="submit" class="btn btn-default">Add!</button>
+        {{/if}}
+    </form>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}

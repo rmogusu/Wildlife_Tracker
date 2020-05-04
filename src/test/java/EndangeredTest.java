@@ -3,6 +3,9 @@ import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -219,9 +222,10 @@ public class EndangeredTest {
     public void save_recordsTimeOfCreationInDatabase() {
         Endangered testEndangered = new Endangered("Lion","ill","newborn", 1);
         testEndangered .save();
-        Timestamp savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
+        String savedEndangeredTimeSpotted = Endangered.find(testEndangered.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
-        assertEquals(rightNow.getDay(), savedEndangeredTimeSpotted.getDay());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedEndangeredTimeSpotted));
+
     }
     @Test
     public void Endangered_recordsTimeLastHealthInDatabase() {

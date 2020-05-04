@@ -2,7 +2,6 @@ import org.sql2o.Connection;
 
 import java.sql.Timestamp;
 import java.util.Timer;
-import java.util.TimerTask;
 
 public abstract class Animal {
 
@@ -130,8 +129,11 @@ public abstract class Animal {
         }
         healthLevel++;
     }
-    public Timestamp getTimeSpotted (){
-        return timeSpotted ;
+//    public Timestamp  getTimeSpotted (){
+//        return timeSpotted ;
+//    }
+    public String getTimeSpotted(){
+        return String.format("%1$TD %1$TR", timeSpotted );
     }
     public Timestamp getLastHealth(){
         return lastHealth ;

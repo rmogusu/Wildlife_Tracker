@@ -4,19 +4,17 @@
             <thead>
             <tr>
                 <th scope="col"> Ranger's Name:</th>
-                <th scope="col"> Species:</th>
-                <th scope="col"> Location:</th>
-                <th scope="col"> TimeSpotted:</th>
+                <th scope="col"> Badge_No:</th>
+                <th scope="col"> Contact:</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-            {{#if sightings}}
-                {{#each sightings}}
-                        <td>{{ rangerName }}</td>
-                        <td>{{ species }}</td>
-                        <td>{{ location}}</td>
-                        <td>{{ timeSpotted}}</td>
+            {{#if rangers}}
+                {{#each rangers}}
+                        <td>{{ name }}</td>
+                        <td>{{ badgeNo }}</td>
+                        <td>{{ contact }}</td>
                     </tr>
                 {{/each}}
             {{else}}

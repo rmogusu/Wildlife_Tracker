@@ -1,7 +1,11 @@
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -86,7 +90,7 @@ public class SightingTest {
         firstEndangered.save();
         UnEndangered secondUnEndangered = new UnEndangered("Lion","ill","newborn",testSighting.getId() );
         secondUnEndangered.save();
-        Object[] animals = new Object[] { firstEndangered , secondUnEndangered};
+        Object  [] animals = new Object [] { firstEndangered , secondUnEndangered};
         assertTrue(testSighting.getAnimals().containsAll(Arrays.asList(animals)));
     }
     @Test
@@ -102,5 +106,15 @@ public class SightingTest {
         testSighting.save();
         Sighting  savedSighting = Sighting.find(testSighting.getId());
         assertEquals(savedSighting.getRangerId(), testRanger.getId());
+    }
+
+    @Test
+    public void save_recordsTimeOfCreationInDatabase() {
+        Sighting testSighting = new Sighting("Rose", "Endangered", "Zone D",1);
+        testSighting.save();
+        String savedSightingTimeSpotted = Sighting.find(testSighting.getId()).getTimeSpotted();
+        Timestamp rightNow = new Timestamp(new Date().getTime());
+        assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedSightingTimeSpotted));
+
     }
 }

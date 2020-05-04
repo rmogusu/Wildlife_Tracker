@@ -1,5 +1,6 @@
 import org.sql2o.Connection;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class Sighting implements DatabaseManagement {
     private String location;
     private String rangerName;
     private int id;
+    private Timestamp   timeSpotted;
     private int rangerId;
 
 
@@ -36,7 +38,9 @@ public class Sighting implements DatabaseManagement {
     public int getId() {
         return id;
     }
-
+    public String getTimeSpotted(){
+        return String.format("%1$TD %1$TR", timeSpotted );
+    }
     @Override
     public boolean equals(Object otherSighting) {
         if (!(otherSighting instanceof Sighting)) {
@@ -53,7 +57,7 @@ public class Sighting implements DatabaseManagement {
     @Override
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sightings (rangerName,species,location,rangerId) VALUES (:rangerName, :species,:location,:rangerId)";
+            String sql = "INSERT INTO sightings (rangerName,species,location,rangerId,timeSpotted) VALUES (:rangerName, :species,:location,:rangerId,now())";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("rangerName", this.rangerName)
                     .addParameter("species", this.species)
@@ -82,10 +86,9 @@ public class Sighting implements DatabaseManagement {
 
 public List<Object> getAnimals() {
     List<Object> allAnimals = new ArrayList<Object>();
-
     try(Connection con = DB.sql2o.open()) {
         String sqlEndangered = "SELECT * FROM animals WHERE sightingId=:id AND type='endangered';";
-        List<Endangered > endangered= con.createQuery(sqlEndangered)
+        List<Endangered> endangered= con.createQuery(sqlEndangered)
                 .addParameter("id", this.id)
                 .throwOnMappingFailure(false)
                 .executeAndFetch(Endangered .class);

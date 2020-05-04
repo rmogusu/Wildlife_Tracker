@@ -11,8 +11,8 @@
             </thead>
             <tbody>
             <tr>
-            {{#if endangered}}
-                {{#each endangered}}
+            {{#if endangereds}}
+                {{#each endangereds}}
                         <td>{{ name }}</td>
                         <td>{{ health }}</td>
                         <td>{{ age }}</td>
@@ -26,7 +26,7 @@
             </tbody>
         </table>
 
-        <a href="/heroes/delete"><button style="font-weight:10px;" name="submit" type="submit" id="sub" >DELETE All Heroes</button></a>
+
         <a href="/"><button style="font-weight:10px;" name="submit" type="submit" id="sub" >Back!</button></a>
 
     </div>

@@ -11,7 +11,7 @@
    font-family: 'Risque', cursive;
   font-weight:40px;
   padding-top:100px;
-  font-size:40px;
+  font-size:50px;
   font-style:bold;
   }
   .sighting-card{
@@ -60,4 +60,20 @@
     font-size:20px;
      font-family: 'Risque', cursive;
     padding-bottom:50px;
+  }
+  a {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .navbar {
+    font-size: 20px;
+    font-family:'Risque', cursive;
+    font-style:bold;
+  }
+  .navbar {
+    position: relative;
+    right: -40%;
+    padding-top:20px;
+    color: white;
   }
