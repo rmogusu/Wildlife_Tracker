@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnEndangeredTest" time="15.516" tests="38" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="UnEndangeredTest" time="13.678" tests="38" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5+10"/>
@@ -61,46 +61,42 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="unEndangered_instantiatesWithHalfFullHealthLevel" classname="UnEndangeredTest" time="0.015"/>
-  <testcase name="all_returnsAllInstancesOfUnEndangeredAnimal_true" classname="UnEndangeredTest" time="0.074"/>
-  <testcase name="UnEndangered_instantiatesWithHalfFullUnEndangeredLevel" classname="UnEndangeredTest" time="0.005"/>
-  <testcase name="unEndangered_instantiatesWithHalfFullsIllLevel" classname="UnEndangeredTest" time="0.009"/>
-  <testcase name="timer_executesDepleteLevelsMethod" classname="UnEndangeredTest" time="6.009"/>
-  <testcase name="delete_deletesEndangeredAnimal_true" classname="UnEndangeredTest" time="0.895"/>
-  <testcase name="unEndangered_HealthLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.108"/>
-  <testcase name="unEndangered_instantiatesWithHalfFullsYoungLevel" classname="UnEndangeredTest" time="0.007"/>
-  <testcase name="find_returnsUnEndangeredAnimalWithSameId_secondUnEndangeredAnimal" classname="UnEndangeredTest" time="0.056"/>
-  <testcase name="unEndangered_IllLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.039"/>
-  <testcase name="save_recordsTimeOfCreationInDatabase" classname="UnEndangeredTest" time="0.038">
-    <error message="Cannot format given Object as a Date" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Cannot format given Object as a Date
-	at UnEndangeredTest.save_recordsTimeOfCreationInDatabase(UnEndangeredTest.java:237)
-</error>
-  </testcase>
-  <testcase name="isAlive_confirmsUnEndangeredAnimalIsAliveIfAllLevelsAboveMinimum_true" classname="UnEndangeredTest" time="0.005"/>
-  <testcase name="ill_increasesUnEndangeredIllLevel" classname="UnEndangeredTest" time="0.015"/>
-  <testcase name="save_assignsIdToUnEndangeredAnimal" classname="UnEndangeredTest" time="0.034"/>
-  <testcase name="unEndangered_OkayLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.056"/>
-  <testcase name="health_increasesUnEndangeredHealthLevel" classname="UnEndangeredTest" time="0.01"/>
-  <testcase name="UnEndangeredAnimal_instantiatesWithHealth_String" classname="UnEndangeredTest" time="0.007"/>
-  <testcase name="unEndangered_recordsTimeLastHealthyInDatabase" classname="UnEndangeredTest" time="0.045"/>
-  <testcase name="timer_haltsAfterEndangeredAnimalDies" classname="UnEndangeredTest" time="6.01"/>
-  <testcase name="health_throwsExceptionIfHealthLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.11"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullHealthLevel" classname="UnEndangeredTest" time="0.008"/>
+  <testcase name="all_returnsAllInstancesOfUnEndangeredAnimal_true" classname="UnEndangeredTest" time="0.098"/>
+  <testcase name="UnEndangered_instantiatesWithHalfFullUnEndangeredLevel" classname="UnEndangeredTest" time="0.007"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsIllLevel" classname="UnEndangeredTest" time="0.007"/>
+  <testcase name="timer_executesDepleteLevelsMethod" classname="UnEndangeredTest" time="6.011"/>
+  <testcase name="delete_deletesEndangeredAnimal_true" classname="UnEndangeredTest" time="0.32"/>
+  <testcase name="unEndangered_HealthLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.115"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsYoungLevel" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="find_returnsUnEndangeredAnimalWithSameId_secondUnEndangeredAnimal" classname="UnEndangeredTest" time="0.115"/>
+  <testcase name="unEndangered_IllLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.041"/>
+  <testcase name="save_recordsTimeOfCreationInDatabase" classname="UnEndangeredTest" time="0.116"/>
+  <testcase name="isAlive_confirmsUnEndangeredAnimalIsAliveIfAllLevelsAboveMinimum_true" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="ill_increasesUnEndangeredIllLevel" classname="UnEndangeredTest" time="0.013"/>
+  <testcase name="save_assignsIdToUnEndangeredAnimal" classname="UnEndangeredTest" time="0.055"/>
+  <testcase name="unEndangered_OkayLevelCannotGoBeyondMaxValue" classname="UnEndangeredTest" time="0.061"/>
+  <testcase name="health_increasesUnEndangeredHealthLevel" classname="UnEndangeredTest" time="0.017"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithHealth_String" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="unEndangered_recordsTimeLastHealthyInDatabase" classname="UnEndangeredTest" time="0.08"/>
+  <testcase name="timer_haltsAfterEndangeredAnimalDies" classname="UnEndangeredTest" time="6.013"/>
+  <testcase name="health_throwsExceptionIfHealthLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.114"/>
   <testcase name="unEndangered_instantiatesWithHalfFullAdultLevel" classname="UnEndangeredTest" time="0.006"/>
   <testcase name="saving_throwsExceptionIfEndangeredLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.008"/>
-  <testcase name="UnEndangeredAnimal_instantiatesCorrectly_true" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="unEndangered_recordsTimeLastIllInDatabase" classname="UnEndangeredTest" time="1.554"/>
-  <testcase name="equals_returnsTrueIfNameAndSightingIdAreSame_true" classname="UnEndangeredTest" time="0.006"/>
+  <testcase name="UnEndangeredAnimal_instantiatesCorrectly_true" classname="UnEndangeredTest" time="0.005"/>
+  <testcase name="unEndangered_recordsTimeLastIllInDatabase" classname="UnEndangeredTest" time="0.085"/>
+  <testcase name="equals_returnsTrueIfNameAndSightingIdAreSame_true" classname="UnEndangeredTest" time="0.011"/>
   <testcase name="unEndangered_instantiatesWithHalfFullsNewbornLevel" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="okay_increasesUnEndangeredOkayLevel" classname="UnEndangeredTest" time="0.009"/>
-  <testcase name="save_savesSightingIdIntoDB_true" classname="UnEndangeredTest" time="0.1"/>
-  <testcase name="isAlive_recognizesUnEndangeredAnimalIsDeadWhenLevelsReachMinimum_false" classname="UnEndangeredTest" time="0.01"/>
-  <testcase name="unEndangered_instantiatesWithHalfFullsOkayLevel" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="UnEndangeredAnimal_instantiatesWithAge_String" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="unEndangered_recordsTimeLastOkayInDatabase" classname="UnEndangeredTest" time="0.076"/>
+  <testcase name="okay_increasesUnEndangeredOkayLevel" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="save_savesSightingIdIntoDB_true" classname="UnEndangeredTest" time="0.059"/>
+  <testcase name="isAlive_recognizesUnEndangeredAnimalIsDeadWhenLevelsReachMinimum_false" classname="UnEndangeredTest" time="0.009"/>
+  <testcase name="unEndangered_instantiatesWithHalfFullsOkayLevel" classname="UnEndangeredTest" time="0.005"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithAge_String" classname="UnEndangeredTest" time="0.004"/>
+  <testcase name="unEndangered_recordsTimeLastOkayInDatabase" classname="UnEndangeredTest" time="0.044"/>
   <testcase name="ill_throwsExceptionIfIllLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.036"/>
-  <testcase name="UnEndangeredAnimal_instantiatesWithSightingId_int" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="depleteLevels_reducesAllLevels" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="save_successfullyAddsUnEndangeredAnimalToDatabase_List" classname="UnEndangeredTest" time="0.038"/>
-  <testcase name="UnEndangeredAnimal_instantiatesWithName_String" classname="UnEndangeredTest" time="0.006"/>
-  <testcase name="okay_throwsExceptionIfOkayLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.065"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithSightingId_int" classname="UnEndangeredTest" time="0.007"/>
+  <testcase name="depleteLevels_reducesAllLevels" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="save_successfullyAddsUnEndangeredAnimalToDatabase_List" classname="UnEndangeredTest" time="0.045"/>
+  <testcase name="UnEndangeredAnimal_instantiatesWithName_String" classname="UnEndangeredTest" time="0.01"/>
+  <testcase name="okay_throwsExceptionIfOkayLevelIsAtMaxValue" classname="UnEndangeredTest" time="0.072"/>
 </testsuite>

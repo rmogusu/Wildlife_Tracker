@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="SightingTest" time="2.24" tests="14" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="SightingTest" time="2.539" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5+10"/>
@@ -61,22 +61,18 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="getAnimals_retrievesAllAnimalsFromDatabase_monstersList" classname="SightingTest" time="1.644"/>
+  <testcase name="getAnimals_retrievesAllAnimalsFromDatabase_monstersList" classname="SightingTest" time="0.436"/>
   <testcase name="save_insertsObjectIntoDatabase_Sighting" classname="SightingTest" time="0.052"/>
-  <testcase name="save_recordsTimeOfCreationInDatabase" classname="SightingTest" time="0.07">
-    <error message="Cannot format given Object as a Date" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Cannot format given Object as a Date
-	at SightingTest.save_recordsTimeOfCreationInDatabase(SightingTest.java:117)
-</error>
-  </testcase>
-  <testcase name="Sighting_instantiatesCorrectly_true" classname="SightingTest" time="0.005"/>
-  <testcase name="sighting_instantiatesWithRangerId_int" classname="SightingTest" time="0.009"/>
-  <testcase name="equals_returnsTrueIfSightingsIdAreSame_true" classname="SightingTest" time="0.006"/>
+  <testcase name="save_recordsTimeOfCreationInDatabase" classname="SightingTest" time="1.541"/>
+  <testcase name="Sighting_instantiatesCorrectly_true" classname="SightingTest" time="0.01"/>
+  <testcase name="sighting_instantiatesWithRangerId_int" classname="SightingTest" time="0.008"/>
+  <testcase name="equals_returnsTrueIfSightingsIdAreSame_true" classname="SightingTest" time="0.008"/>
   <testcase name="getSpecies_InstantiatesWithSpecies_true" classname="SightingTest" time="0.007"/>
-  <testcase name="delete_deletesSighting_true" classname="SightingTest" time="0.052"/>
-  <testcase name="find_returnsSightingsWithSameId_secondSighting" classname="SightingTest" time="0.082"/>
-  <testcase name="all_returnsAllInstancesOfSightings_true" classname="SightingTest" time="0.083"/>
-  <testcase name="save_assignsIdToObject" classname="SightingTest" time="0.044"/>
-  <testcase name="getLocation_InstantiatesWithLocation_true" classname="SightingTest" time="0.01"/>
-  <testcase name="save_savesRangerIdIntoDB_true" classname="SightingTest" time="0.087"/>
+  <testcase name="delete_deletesSighting_true" classname="SightingTest" time="0.107"/>
+  <testcase name="find_returnsSightingsWithSameId_secondSighting" classname="SightingTest" time="0.053"/>
+  <testcase name="all_returnsAllInstancesOfSightings_true" classname="SightingTest" time="0.066"/>
+  <testcase name="save_assignsIdToObject" classname="SightingTest" time="0.043"/>
+  <testcase name="getLocation_InstantiatesWithLocation_true" classname="SightingTest" time="0.008"/>
+  <testcase name="save_savesRangerIdIntoDB_true" classname="SightingTest" time="0.101"/>
   <testcase name="getRangerName_InstantiatesWithRangerName_true" classname="SightingTest" time="0.011"/>
 </testsuite>

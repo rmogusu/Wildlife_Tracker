@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: EndangeredTest
 -------------------------------------------------------------------------------
-Tests run: 38, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.037 sec <<< FAILURE! - in EndangeredTest
-save_recordsTimeOfCreationInDatabase(EndangeredTest)  Time elapsed: 0.043 sec  <<< ERROR!
-java.lang.IllegalArgumentException: Cannot format given Object as a Date
-	at EndangeredTest.save_recordsTimeOfCreationInDatabase(EndangeredTest.java:227)
-
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.404 sec - in EndangeredTest

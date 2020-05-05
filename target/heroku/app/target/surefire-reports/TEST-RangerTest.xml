@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="RangerTest" time="0.467" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="RangerTest" time="0.503" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5+10"/>
@@ -61,15 +61,15 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="getName_InstantiatesWithRangerName_true" classname="RangerTest" time="0.001"/>
-  <testcase name="Ranger_instantiatesCorrectly_true" classname="RangerTest" time="0.006"/>
-  <testcase name="getBadgeNo_InstantiatesWithBadgeNo_true" classname="RangerTest" time="0.013"/>
-  <testcase name="save_insertsObjectIntoDatabase_Ranger" classname="RangerTest" time="0.039"/>
+  <testcase name="getName_InstantiatesWithRangerName_true" classname="RangerTest" time="0.007"/>
+  <testcase name="Ranger_instantiatesCorrectly_true" classname="RangerTest" time="0.023"/>
+  <testcase name="getBadgeNo_InstantiatesWithBadgeNo_true" classname="RangerTest" time="0.008"/>
+  <testcase name="save_insertsObjectIntoDatabase_Ranger" classname="RangerTest" time="0.068"/>
   <testcase name="find_returnsRangersWithSameId_secondRanger" classname="RangerTest" time="0.077"/>
-  <testcase name="delete_deletesRangers_true" classname="RangerTest" time="0.056"/>
-  <testcase name="getSightings_retrievesAllSightingsFromDatabase_sightingsList" classname="RangerTest" time="0.12"/>
+  <testcase name="delete_deletesRangers_true" classname="RangerTest" time="0.058"/>
+  <testcase name="getSightings_retrievesAllSightingsFromDatabase_sightingsList" classname="RangerTest" time="0.117"/>
   <testcase name="getContact_InstantiatesWithContact_true" classname="RangerTest" time="0.007"/>
-  <testcase name="save_assignsIdToObject" classname="RangerTest" time="0.059"/>
+  <testcase name="save_assignsIdToObject" classname="RangerTest" time="0.047"/>
   <testcase name="equals_returnsTrueIfRangersAreSame_true" classname="RangerTest" time="0.007"/>
-  <testcase name="all_returnsAllInstancesOfRangers_true" classname="RangerTest" time="0.081"/>
+  <testcase name="all_returnsAllInstancesOfRangers_true" classname="RangerTest" time="0.08"/>
 </testsuite>
