@@ -76,7 +76,7 @@ public class Endangered  extends Animal implements DatabaseManagement {
         }
     }
     public static List<Endangered> all() {
-        String sql = "SELECT * FROM animals WHERE type='endangered';";
+        String sql = "SELECT * FROM animals WHERE type='endangered' ORDER BY timeSpotted DESC ;";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
                     .throwOnMappingFailure(false)

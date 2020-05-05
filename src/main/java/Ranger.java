@@ -53,7 +53,7 @@ public class Ranger implements DatabaseManagement{
         }
     }
     public static List<Ranger> all() {
-        String sql = "SELECT * FROM rangers";
+        String sql = "SELECT * FROM rangers ORDER BY name ASC;";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
                     .executeAndFetch(Ranger.class);

@@ -89,7 +89,7 @@ public class UnEndangered extends Animal implements DatabaseManagement{
         }
     }
     public static List<UnEndangered> all() {
-        String sql = "SELECT * FROM animals WHERE type='unEndangered';";
+        String sql = "SELECT * FROM animals WHERE type='unEndangered' ORDER BY timeSpotted DESC;";
         try (Connection con = DB.sql2o.open()) {
             return con.createQuery(sql)
                     .throwOnMappingFailure(false)
