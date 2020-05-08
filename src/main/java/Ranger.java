@@ -72,20 +72,20 @@ public class Ranger implements DatabaseManagement{
     @Override
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "DELETE FROM rangers WHERE id = :id;";
+            String sql = "DELETE FROM rangers";
             con.createQuery(sql)
-                    .addParameter("id", this.id)
                     .executeUpdate();
         }
     }
-    public static List<Sighting> getSightings(int rangerId) {
+
+    public static List<Sighting>getSightings(int rangerId) {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM sightings WHERE rangerId=:id";
+            String sql = "SELECT * FROM sightings WHERE rangerId=:rangerId";
             return con.createQuery(sql)
-                    .addParameter("id", rangerId)
+                    .addParameter("rangerId", rangerId)
                     .executeAndFetch(Sighting.class);
         }
-    }
 
     }
+}
 

@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -5,7 +6,7 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
+
 
 import static org.junit.Assert.*;
 
@@ -13,6 +14,8 @@ public class SightingTest {
 
     @Rule
     public DatabaseRule database = new DatabaseRule();
+    private Sighting testSighting;
+
 
     @Test
     public void Sighting_instantiatesCorrectly_true() {
@@ -76,7 +79,7 @@ public class SightingTest {
         assertEquals(Sighting.find(secondSighting.getId()), secondSighting);
     }
     @Test
-    public void delete_deletesSighting_true() {
+    public void delete_deletesAllSighting_true() {
         Sighting testSighting = new Sighting("Fred", "Thriving","Zone A",1);
         testSighting.save();
         testSighting.delete();
@@ -107,12 +110,18 @@ public class SightingTest {
         Sighting  savedSighting = Sighting.find(testSighting.getId());
         assertEquals(savedSighting.getRangerId(), testRanger.getId());
     }
-
+    @Test
+    public void RangerIdIsReturnedCorrectly() throws Exception {
+        Sighting testSighting = new Sighting("Fred", "Thriving","Zone A",1);
+        int originalRangerId = testSighting .getRangerId();
+        testSighting.save();
+        assertEquals(originalRangerId, Sighting.find(testSighting .getId()).getRangerId());
+    }
     @Test
     public void save_recordsTimeOfCreationInDatabase() {
         Sighting testSighting = new Sighting("Rose", "Endangered", "Zone D",1);
         testSighting.save();
-        String savedSightingTimeSpotted = Sighting.find(testSighting.getId()).getTimeSpotted();
+        Timestamp  savedSightingTimeSpotted = Sighting.find(testSighting.getId()).getTimeSpotted();
         Timestamp rightNow = new Timestamp(new Date().getTime());
         assertEquals(DateFormat.getDateTimeInstance().format(rightNow), DateFormat.getDateTimeInstance().format(savedSightingTimeSpotted));
 

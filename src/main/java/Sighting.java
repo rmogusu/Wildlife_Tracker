@@ -20,6 +20,7 @@ public class Sighting implements DatabaseManagement {
         this.rangerName = rangerName;
         this.rangerId =rangerId;
 
+
     }
     public String getRangerName() {
         return rangerName;
@@ -38,8 +39,8 @@ public class Sighting implements DatabaseManagement {
     public int getId() {
         return id;
     }
-    public String getTimeSpotted(){
-        return String.format("%1$TD %1$TR", timeSpotted );
+    public Timestamp  getTimeSpotted(){
+        return timeSpotted ;
     }
     @Override
     public boolean equals(Object otherSighting) {
@@ -107,9 +108,8 @@ public List<Object> getAnimals() {
     @Override
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "DELETE FROM sightings WHERE id = :id;";
+            String sql = "DELETE FROM sightings";
             con.createQuery(sql)
-                    .addParameter("id", this.id)
                     .executeUpdate();
         }
     }

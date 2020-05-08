@@ -1,16 +1,9 @@
 {{#partial "content"}}
     <div class ="sighting-card">
-        {{#if editSighting}}
-            <h1>Edit this Sighting!</h1>
-            <form action="/sightings/{{sighting.id}}" method="post">
-                <label for="newRangerName">Edit this sighting</label>
-                <input id="newRangerName" name="newRangerName" type="text" value="{{sighting.rangerName}}">
-                <button type="submit" class="btn btn-default">Submit!</button>
-            </form>
-        {{else}}
             <h2>The greatness of a nation can be judged by the way it's animals are treated.</h2>
             <h1>Record a new sighting!</h1>
         <form action="/sightings" method="post">
+    {{#if rangers}}
             <div class="form-group">
                 <fieldset>
                     <input id="rangerName" name="rangerName" placeholder="Ranger's  Name:" class="form-control" type="text"  required>
@@ -36,8 +29,18 @@
                     </select>
                 </fieldset>
             </div>
+        <label for="rangerId">Categorize this Sighting with Ranger:</label>
+        <select id="rangerId" name="rangerId">
+            {{#each rangers}}
+                <option value="{{id}}">{{name}}</option>
+            {{/each}}
+        </select>
+    {{else}}
+        <h3> You'll need to add a Ranger  before you add a Sighting.<br>
+            <a href="/sighting/new">Add one here.</a> </h3>
+    {{/if}}
             <button type="submit" class="btn btn-default">Add!</button>
-        {{/if}}
+
     </form>
 
     </div>

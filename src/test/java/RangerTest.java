@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class RangerTest {
     @Rule
     public DatabaseRule database = new DatabaseRule();
-
+    private Ranger  testRanger;
     @Test
     public void Ranger_instantiatesCorrectly_true() {
         Ranger testRanger  = new Ranger("Rose",12345, 0712121212);
@@ -66,21 +66,36 @@ public class RangerTest {
         assertEquals(Ranger.find(secondRanger.getId()), secondRanger);
     }
     @Test
-    public void delete_deletesRangers_true() {
+    public void delete_deletesAllRangers_true() {
         Ranger testRanger  = new Ranger("Rose",12345, 0712121212);
         testRanger.save();
         testRanger.delete();
         assertEquals(0, Ranger .all().size());
     }
+//    @Test
+//    public void getSightings_retrievesAllSightingsFromDatabase_sightingsList() {
+//        Ranger testRanger  = new Ranger("Rose",12345, 0712121212);
+//        testRanger.save();
+//        Sighting firstSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
+//        firstSighting.save();
+//        Sighting secondSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
+//        secondSighting.save();
+//        Sighting [] sightings = new Sighting[]{ firstSighting , secondSighting};
+//        assertTrue(testRanger.getSightings(rangerId).containsAll(Arrays.asList(sightings)));
+//    }
     @Test
-    public void getSightings_retrievesAllSightingsFromDatabase_sightingsList() {
+    public void getAllSightingsByRangerReturnsSightingsCorrectly() throws Exception {
         Ranger testRanger  = new Ranger("Rose",12345, 0712121212);
         testRanger.save();
-        Sighting firstSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
-        firstSighting.save();
-        Sighting secondSighting = new Sighting("Fred", "Thriving","Zone A",testRanger.getId());
-        secondSighting.save();
-        Sighting [] sightings = new Sighting[]{ firstSighting , secondSighting};
-        assertTrue(testRanger.getSightings().containsAll(Arrays.asList(sightings)));
+        int rangerId = testRanger .getId();
+        Sighting newSighting = new Sighting("Fred", "Thriving","Zone A",rangerId);
+        newSighting.save();
+        Sighting otherSighting = new Sighting("Fred", "Thriving","Zone A",rangerId );
+        otherSighting.save();
+        Sighting thirdSighting = new Sighting("Fred", "Thriving","Zone A",rangerId );
+        assertEquals(2 ,testRanger.getSightings(rangerId) );
+        assertTrue(testRanger .getSightings(rangerId) .contains(newSighting));
+        assertTrue(testRanger.getSightings(rangerId) .contains(otherSighting));
+        assertFalse(testRanger.getSightings(rangerId).contains(thirdSighting));
     }
 }

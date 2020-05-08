@@ -129,11 +129,9 @@ public abstract class Animal {
         }
         healthLevel++;
     }
-//    public Timestamp  getTimeSpotted (){
-//        return timeSpotted ;
-//    }
-    public String getTimeSpotted(){
-        return String.format("%1$TD %1$TR", timeSpotted );
+
+    public Timestamp  getTimeSpotted(){
+        return  timeSpotted ;
     }
     public Timestamp getLastHealth(){
         return lastHealth ;
@@ -160,10 +158,11 @@ public abstract class Animal {
     }
     public void delete() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "DELETE FROM animals WHERE id = :id;";
+            String sql = "DELETE FROM animals ";
             con.createQuery(sql)
-                    .addParameter("id", this.id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
         }
     }
+
 }

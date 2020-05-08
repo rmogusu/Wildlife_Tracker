@@ -31,6 +31,7 @@ public class UnEndangered extends Animal implements DatabaseManagement{
     public int getUnEndangeredLevel(){
         return unendangeredLevel ;
     }
+
     public void conserve(){
         if (unendangeredLevel >= MAX_UNENDANGERED_LEVEL){
             throw new UnsupportedOperationException("You have reached maximum number of conserving!");
