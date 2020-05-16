@@ -3,10 +3,7 @@ import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
+
 import java.util.Date;
 
 import static org.junit.Assert.*;

@@ -1,5 +1,6 @@
 import org.sql2o.Connection;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ public class Sighting implements DatabaseManagement {
 
 
     }
+
     public String getRangerName() {
         return rangerName;
     }
@@ -42,6 +44,7 @@ public class Sighting implements DatabaseManagement {
     public Timestamp  getTimeSpotted(){
         return timeSpotted ;
     }
+
     @Override
     public boolean equals(Object otherSighting) {
         if (!(otherSighting instanceof Sighting)) {

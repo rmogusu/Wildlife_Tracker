@@ -150,17 +150,17 @@ public class App {
             return null;
         }, new HandlebarsTemplateEngine());
        //get: show an individual ranger and sightings it contains
-        get("/rangers/:id", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            int idOfRangerToFind = Integer.parseInt(req.params("id")); //new
-            Ranger foundRanger = Ranger.find(idOfRangerToFind);
-            model.put("ranger", foundRanger);
-            List<Sighting> allSightingByRanger = Ranger.getSightings(idOfRangerToFind);
-            model.put("sightings", allSightingByRanger);
-            model.put("rangers", Ranger.all());
-            model.put("sightings", Sighting.all());
-            return new ModelAndView(model, "sighting-detail.hbs");
-        }, new HandlebarsTemplateEngine());
+//        get("/rangers/:id", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfRangerToFind = Integer.parseInt(req.params("id")); //new
+//            Ranger foundRanger = Ranger.find(idOfRangerToFind);
+//            model.put("ranger", foundRanger);
+//            List<Sighting> allSightingByRanger = Ranger.getSightings(idOfRangerToFind);
+//            model.put("sightings", allSightingByRanger);
+//            model.put("rangers", Ranger.all());
+//            model.put("sightings", Sighting.all());
+//            return new ModelAndView(model, "sighting-detail.hbs");
+//        }, new HandlebarsTemplateEngine());
 
     }
 }
